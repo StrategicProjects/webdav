@@ -58,7 +58,12 @@ This function copies a file or directory from one path to another on a WebDAV se
 **Example**:
 
 ```r
-webdav_copy_file("https://drive.expresso.pe.gov.br", "/data/file.txt", "/data/copied_file.txt", "0c75a584-017d-103a-9c84-d34d2e44200b")
+webdav_copy_file(
+  "https://drive.expresso.pe.gov.br", 
+  "/data/file.txt", 
+  "/data/copied_file.txt", 
+  "0c75a584-017d-103a-9c84-d34d2e44200b"
+  )
 ```
 
 ### 3. Creating a Directory
@@ -79,13 +84,24 @@ This function creates a new directory (or collection) on the WebDAV server using
 **Example**:
 
 ```r
-webdav_create_directory("https://drive.expresso.pe.gov.br", "/data/new_folder/", "0c75a584-017d-103a-9c84-d34d2e44200b")
+webdav_create_directory(
+  "https://drive.expresso.pe.gov.br", 
+  "/data/new_folder/", 
+  "0c75a584-017d-103a-9c84-d34d2e44200b"
+  )
 ```
 
 ### 4. Deleting a File or Directory
 
 ```r
-webdav_delete_resource(base_url, resource_path, dav, username, password, verbose = FALSE)
+webdav_delete_resource(
+  base_url, 
+  resource_path, 
+  dav, 
+  username, 
+  password, 
+  verbose = FALSE
+  )
 ```
 
 This function deletes a file or directory from the WebDAV server using the DELETE method.
@@ -100,13 +116,25 @@ This function deletes a file or directory from the WebDAV server using the DELET
 **Example**:
 
 ```r
-webdav_delete_resource("https://drive.expresso.pe.gov.br", "/data/file.txt", "0c75a584-017d-103a-9c84-d34d2e44200b")
+webdav_delete_resource(
+  "https://drive.expresso.pe.gov.br", 
+  "/data/file.txt", 
+  "0c75a584-017d-103a-9c84-d34d2e44200b"
+  )
 ```
 
 ### 5. Listing Files in a Directory
 
 ```r
-webdav_list_files(base_url, folder_path, dav, username, password, depth = 1, verbose = FALSE)
+webdav_list_files(
+  base_url, 
+  folder_path, 
+  dav, 
+  username, 
+  password, 
+  depth = 1, 
+  verbose = FALSE
+  )
 ```
 
 This function lists the files within a directory on the WebDAV server using the PROPFIND method.
@@ -122,13 +150,25 @@ This function lists the files within a directory on the WebDAV server using the 
 **Example**:
 
 ```r
-webdav_list_files("https://drive.expresso.pe.gov.br", "/data/", "0c75a584-017d-103a-9c84-d34d2e44200b")
+webdav_list_files(
+  "https://drive.expresso.pe.gov.br", 
+  "/data/", 
+  "0c75a584-017d-103a-9c84-d34d2e44200b"
+  )
 ```
 
 ### 6. Uploading a File
 
 ```r
-webdav_upload_file(base_url, file_path, upload_path, dav, username, password, timeout = 300)
+webdav_upload_file(
+  base_url, 
+  file_path, 
+  upload_path, 
+  dav, 
+  username, 
+  password, 
+  timeout = 300
+  )
 ```
 
 This function uploads a local file to the WebDAV server.
@@ -145,13 +185,25 @@ This function uploads a local file to the WebDAV server.
 **Example**:
 
 ```r
-webdav_upload_file("https://drive.expresso.pe.gov.br", "local_file.txt", "/data/", "0c75a584-017d-103a-9c84-d34d2e44200b")
+webdav_upload_file(
+  "https://drive.expresso.pe.gov.br", 
+  "local_file.txt", 
+  "/data/", 
+  "0c75a584-017d-103a-9c84-d34d2e44200b"
+  )
 ```
 
 ### 7. Locking a Resource
 
 ```r
-webdav_lock_resource(base_url, resource_path, dav, lock_type = "exclusive", username, password)
+webdav_lock_resource(
+  base_url, 
+  resource_path, 
+  dav, 
+  lock_type = "exclusive", 
+  username, 
+  password
+  )
 ```
 
 This function locks a resource on the WebDAV server to prevent concurrent modifications using the LOCK method.
@@ -167,7 +219,12 @@ This function locks a resource on the WebDAV server to prevent concurrent modifi
 **Example**:
 
 ```r
-webdav_lock_resource("https://drive.expresso.pe.gov.br", "/data/file.txt", "0c75a584-017d-103a-9c84-d34d2e44200b", "exclusive")
+webdav_lock_resource(
+  "https://drive.expresso.pe.gov.br", 
+  "/data/file.txt", 
+  "0c75a584-017d-103a-9c84-d34d2e44200b", 
+  "exclusive"
+  )
 ```
 
 ### 8. Checking for Lock Support
@@ -188,7 +245,11 @@ This function checks if a resource on the WebDAV server supports the LOCK method
 **Example**:
 
 ```r
-check_lock_support_webdav("https://drive.expresso.pe.gov.br", "/data/file.txt", "0c75a584-017d-103a-9c84-d34d2e44200b")
+check_lock_support_webdav(
+  "https://drive.expresso.pe.gov.br", 
+  "/data/file.txt", 
+  "0c75a584-017d-103a-9c84-d34d2e44200b"
+  )
 ```
 
 ## Conclusion

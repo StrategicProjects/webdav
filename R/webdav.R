@@ -2,18 +2,25 @@
 #'
 #' This function creates a base WebDAV request for the OwnCloud server with the proper authentication.
 #'
-#' @param base_url The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").
+#' @param base_url The base URL of the OwnCloud server (e.g., "_server_url_").
 #' @param path The specific path for the resource in the OwnCloud WebDAV server.
-#' @param dav The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").
+#' @param dav The WebDAV base path (e.g., "_dav_").
 #' @param username The username for OwnCloud authentication. Defaults to the "webdav_USERNAME" environment variable.
 #' @param password The password for OwnCloud authentication. Defaults to the "webdav_PASSWORD" environment variable.
 #' @param verbose A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.
 #'
 #' @return An `httr2_request` object with authentication and base URL configured.
-#'
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @examples
-#' webdav_create_request("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/", "0c75a584-017d-103a-9c84-d34d2e44200a")
-#'
+#' \dontrun{
+#' webdav_create_request("_server_url_", "_folder_", "_dav_")
+#' }
 #' @export
 webdav_create_request <- function(base_url,
                            path,
@@ -54,17 +61,24 @@ webdav_create_request <- function(base_url,
 #'
 #' This function copies a resource from one URI to another on the OwnCloud server using the WebDAV COPY method.
 #'
-#' @param base_url The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").
+#' @param base_url The base URL of the OwnCloud server (e.g., "_server_url_").
 #' @param source_path The source path of the resource to copy.
 #' @param destination_path The destination path where the resource will be copied.
-#' @param dav The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").
+#' @param dav The WebDAV base path (e.g., "_dav_").
 #' @param username The username for OwnCloud authentication.
 #' @param password The password for OwnCloud authentication.
 #'
 #' @return Logical value indicating whether the resource was copied successfully.
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
-#' webdav_copy_file("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/file.txt", "/Shared/der/app_painel/data/copy_file.txt", "0c75a584-017d-103a-9c84-d34d2e44200a")
+#' webdav_copy_file("_server_url_", "_file_", "_resource_", "_dav_")
 #' }
 #' @export
 webdav_copy_file <- function(base_url, source_path, destination_path, dav,
@@ -117,16 +131,23 @@ webdav_copy_file <- function(base_url, source_path, destination_path, dav,
 #'
 #' This function creates a collection (directory) on the OwnCloud server using the WebDAV MKCOL method.
 #'
-#' @param base_url The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").
+#' @param base_url The base URL of the OwnCloud server (e.g., "_server_url_").
 #' @param folder_path The path of the directory to create.
-#' @param dav The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").
+#' @param dav The WebDAV base path (e.g., "_dav_").
 #' @param username The username for OwnCloud authentication.
 #' @param password The password for OwnCloud authentication.
 #'
 #' @return Logical value indicating whether the collection was created successfully.
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
-#' webdav_create_directory("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/new_folder/", "0c75a584-017d-103a-9c84-d34d2e44200a")
+#' webdav_create_directory("_server_url_", "/Shared/der/app_painel/new_folder/", "_dav_")
 #' }
 #' @export
 webdav_create_directory <- function(base_url, folder_path, dav,
@@ -180,6 +201,14 @@ webdav_create_directory <- function(base_url, folder_path, dav,
 #' @param password The password for OwnCloud authentication.
 #'
 #' @return Logical value indicating whether the resource supports locking.
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom httr2 request resp_body_string
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @export
 check_lock_support_webdav <- function(base_url, resource_path, dav,
                                       username = Sys.getenv("OWNCLOUD_USERNAME"),
@@ -219,17 +248,24 @@ check_lock_support_webdav <- function(base_url, resource_path, dav,
 #'
 #' This function locks a resource on the OwnCloud server using the WebDAV LOCK method.
 #'
-#' @param base_url The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").
+#' @param base_url The base URL of the OwnCloud server (e.g., "_server_url_").
 #' @param resource_path The path of the resource to lock.
-#' @param dav The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").
+#' @param dav The WebDAV base path (e.g., "_dav_").
 #' @param lock_type Type of lock ('exclusive' or 'shared').
 #' @param username The username for OwnCloud authentication.
 #' @param password The password for OwnCloud authentication.
 #'
 #' @return Logical value indicating whether the resource was locked successfully.
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
-#' webdav_lock_resource("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/file.txt", "0c75a584-017d-103a-9c84-d34d2e44200a", "exclusive")
+#' webdav_lock_resource("_server_url_", "_file_", "_dav_", "exclusive")
 #' }
 #' @export
 webdav_lock_resource <- function(base_url, resource_path, dav, lock_type = "exclusive",
@@ -296,18 +332,26 @@ webdav_lock_resource <- function(base_url, resource_path, dav, lock_type = "excl
 #'
 #' This function uploads a file to a specific folder on the OwnCloud server using WebDAV, with authentication and error handling.
 #'
-#' @param base_url The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").
+#' @param base_url The base URL of the OwnCloud server (e.g., "_server_url_").
 #' @param file_path The local path of the file to be uploaded.
 #' @param upload_path The folder path on the OwnCloud server where the file will be uploaded.
-#' @param dav The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").
+#' @param dav The WebDAV base path (e.g., "_dav_").
 #' @param username The username for OwnCloud authentication.
 #' @param password The password for OwnCloud authentication.
 #' @param timeout The timeout for the upload request in seconds (default is 300 seconds).
+#' @param verbose A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.
 #'
 #' @return Logical value indicating whether the file was uploaded successfully.
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
-#' webdav_upload_file("https://drive.expresso.pe.gov.br", "data/arquivo_local.txt", "/Shared/der/app_painel/data/", "0c75a584-017d-103a-9c84-d34d2e44200a")
+#' webdav_upload_file("_server_url_", "_file_", "_folder_", "_dav_")
 #' }
 #'
 #' @export
@@ -378,20 +422,30 @@ webdav_upload_file <- function(base_url,
 #'
 #' This function lists the files in a specific folder on the OwnCloud server using WebDAV, with authentication and error handling.
 #'
-#' @param base_url The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").
+#' @param base_url The base URL of the OwnCloud server (e.g., "_server_url_").
 #' @param folder_path The path inside OwnCloud where the files are located.
-#' @param dav The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").
+#' @param dav The WebDAV base path (e.g., "_dav_").
 #' @param username The username for OwnCloud authentication.
 #' @param password The password for OwnCloud authentication.
 #' @param depth The depth of the PROPFIND request (default is 1).
 #' @param verbose A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.
 #'
 #' @return A tibble with the file names and paths relative to the folder.
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @examples
-#' webdav_list_files("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/", "0c75a584-017d-103a-9c84-d34d2e44200a")
-#'
+#' \dontrun{
+#' webdav_list_files("_server_url_", "_folder_", "_dav_")
+#' }
 #' @export
-webdav_list_files <- function(base_url, folder_path,
+webdav_list_files <- function(
+                        base_url,
+                        folder_path,
                         dav,
                         username = Sys.getenv("OWNCLOUD_USERNAME"),
                         password = Sys.getenv("OWNCLOUD_PASSWORD"),
@@ -441,9 +495,13 @@ webdav_list_files <- function(base_url, folder_path,
       xml_find_all(".//d:href") %>%
       xml_text()
 
+    # To pass cran notes: Undefined global functions or variables: (Ignore!)
+    file_name = file_path = NULL
+
     files <- tibble(raw) %>%
       filter(!str_detect(raw, "/$")) %>%
-      mutate(file_name = basename(raw), file_path = str_remove(raw, glue("(^.*{str_remove(folder_path, '/$')})"))) %>%
+      mutate(file_name = basename(raw),
+             file_path = str_remove(raw, glue("(^.*{str_remove(folder_path, '/$')})"))) %>%
       mutate(file_path = str_remove(file_path, file_name)) %>%
       mutate(file_path = str_remove(file_path, "/(?=.)")) %>%
       select(-raw) %>%
@@ -463,16 +521,23 @@ webdav_list_files <- function(base_url, folder_path,
 #'
 #' This function deletes a file or directory on the OwnCloud server using the WebDAV DELETE method.
 #'
-#' @param base_url The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").
+#' @param base_url The base URL of the OwnCloud server (e.g., "_server_url_").
 #' @param resource_path The path of the file or directory to delete.
-#' @param dav The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").
+#' @param dav The WebDAV base path (e.g., "_dav_").
 #' @param username The username for OwnCloud authentication.
 #' @param password The password for OwnCloud authentication.
-#'
+#' @param verbose A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.
 #' @return Logical value indicating whether the file or directory was deleted successfully.
+#' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
+#' @importFrom glue glue
+#' @importFrom dplyr filter mutate select arrange
+#' @importFrom stringr str_detect str_remove str_length
+#' @importFrom xml2 read_xml xml_find_all xml_text
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
-#' webdav_delete_resource("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/file.txt", "0c75a584-017d-103a-9c84-d34d2e44200a")
+#' webdav_delete_resource("_server_url_", "_file_", "_dav_")
 #' }
 #' @export
 webdav_delete_resource <- function(base_url, resource_path, dav,
@@ -501,7 +566,7 @@ webdav_delete_resource <- function(base_url, resource_path, dav,
   }
 
   # Use webdav_create_request to create the request
-  req <- webdav_create_request(base_url, resource_path, dav, username, password, verbose) %>%
+  req <- webdav_create_request(base_url, resource_path, dav, username, password, verbose = verbose) %>%
     req_method("DELETE")
 
   # Handle the request using handle_response

@@ -13,11 +13,11 @@ webdav_create_directory(
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").}
+\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
 
 \item{folder_path}{The path of the directory to create.}
 
-\item{dav}{The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").}
+\item{dav}{The WebDAV base path (e.g., "_dav_").}
 
 \item{username}{The username for OwnCloud authentication.}
 
@@ -31,6 +31,6 @@ This function creates a collection (directory) on the OwnCloud server using the 
 }
 \examples{
 \dontrun{
-webdav_create_directory("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/new_folder/", "0c75a584-017d-103a-9c84-d34d2e44200a")
+webdav_create_directory("_server_url_", "/Shared/der/app_painel/new_folder/", "_dav_")
 }
 }

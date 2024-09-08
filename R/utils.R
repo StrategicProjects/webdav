@@ -8,6 +8,8 @@
 #'
 #' @return Invisibly returns `TRUE` if the package is successfully loaded or installed and loaded.
 #' If the installation or loading fails, an error will be raised.
+#' @import utils
+#' @importFrom glue glue
 #'
 #' @examples
 #' \dontrun{

@@ -16,19 +16,21 @@ webdav_upload_file(
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").}
+\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
 
 \item{file_path}{The local path of the file to be uploaded.}
 
 \item{upload_path}{The folder path on the OwnCloud server where the file will be uploaded.}
 
-\item{dav}{The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").}
+\item{dav}{The WebDAV base path (e.g., "_dav_").}
 
 \item{username}{The username for OwnCloud authentication.}
 
 \item{password}{The password for OwnCloud authentication.}
 
 \item{timeout}{The timeout for the upload request in seconds (default is 300 seconds).}
+
+\item{verbose}{A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.}
 }
 \value{
 Logical value indicating whether the file was uploaded successfully.
@@ -38,7 +40,7 @@ This function uploads a file to a specific folder on the OwnCloud server using W
 }
 \examples{
 \dontrun{
-webdav_upload_file("https://drive.expresso.pe.gov.br", "data/arquivo_local.txt", "/Shared/der/app_painel/data/", "0c75a584-017d-103a-9c84-d34d2e44200a")
+webdav_upload_file("_server_url_", "_file_", "_folder_", "_dav_")
 }
 
 }

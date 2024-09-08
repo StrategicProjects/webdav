@@ -14,11 +14,11 @@ webdav_lock_resource(
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").}
+\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
 
 \item{resource_path}{The path of the resource to lock.}
 
-\item{dav}{The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").}
+\item{dav}{The WebDAV base path (e.g., "_dav_").}
 
 \item{lock_type}{Type of lock ('exclusive' or 'shared').}
 
@@ -34,6 +34,6 @@ This function locks a resource on the OwnCloud server using the WebDAV LOCK meth
 }
 \examples{
 \dontrun{
-webdav_lock_resource("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/file.txt", "0c75a584-017d-103a-9c84-d34d2e44200a", "exclusive")
+webdav_lock_resource("_server_url_", "_file_", "_dav_", "exclusive")
 }
 }

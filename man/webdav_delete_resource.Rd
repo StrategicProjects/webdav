@@ -14,15 +14,17 @@ webdav_delete_resource(
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").}
+\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
 
 \item{resource_path}{The path of the file or directory to delete.}
 
-\item{dav}{The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").}
+\item{dav}{The WebDAV base path (e.g., "_dav_").}
 
 \item{username}{The username for OwnCloud authentication.}
 
 \item{password}{The password for OwnCloud authentication.}
+
+\item{verbose}{A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.}
 }
 \value{
 Logical value indicating whether the file or directory was deleted successfully.
@@ -32,6 +34,6 @@ This function deletes a file or directory on the OwnCloud server using the WebDA
 }
 \examples{
 \dontrun{
-webdav_delete_resource("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/file.txt", "0c75a584-017d-103a-9c84-d34d2e44200a")
+webdav_delete_resource("_server_url_", "_file_", "_dav_")
 }
 }

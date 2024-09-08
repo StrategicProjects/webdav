@@ -14,13 +14,13 @@ webdav_copy_file(
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").}
+\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
 
 \item{source_path}{The source path of the resource to copy.}
 
 \item{destination_path}{The destination path where the resource will be copied.}
 
-\item{dav}{The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").}
+\item{dav}{The WebDAV base path (e.g., "_dav_").}
 
 \item{username}{The username for OwnCloud authentication.}
 
@@ -34,6 +34,6 @@ This function copies a resource from one URI to another on the OwnCloud server u
 }
 \examples{
 \dontrun{
-webdav_copy_file("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/file.txt", "/Shared/der/app_painel/data/copy_file.txt", "0c75a584-017d-103a-9c84-d34d2e44200a")
+webdav_copy_file("_server_url_", "_file_", "_resource_", "_dav_")
 }
 }

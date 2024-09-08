@@ -14,11 +14,11 @@ webdav_create_request(
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").}
+\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
 
 \item{path}{The specific path for the resource in the OwnCloud WebDAV server.}
 
-\item{dav}{The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").}
+\item{dav}{The WebDAV base path (e.g., "_dav_").}
 
 \item{username}{The username for OwnCloud authentication. Defaults to the "webdav_USERNAME" environment variable.}
 
@@ -33,6 +33,7 @@ An `httr2_request` object with authentication and base URL configured.
 This function creates a base WebDAV request for the OwnCloud server with the proper authentication.
 }
 \examples{
-webdav_create_request("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/", "0c75a584-017d-103a-9c84-d34d2e44200a")
-
+\dontrun{
+webdav_create_request("_server_url_", "_folder_", "_dav_")
+}
 }

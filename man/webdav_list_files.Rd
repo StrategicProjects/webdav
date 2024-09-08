@@ -15,11 +15,11 @@ webdav_list_files(
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "https://drive.expresso.pe.gov.br").}
+\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
 
 \item{folder_path}{The path inside OwnCloud where the files are located.}
 
-\item{dav}{The WebDAV base path (e.g., "0c75a584-017d-103a-9c84-d34d2e44200a").}
+\item{dav}{The WebDAV base path (e.g., "_dav_").}
 
 \item{username}{The username for OwnCloud authentication.}
 
@@ -36,6 +36,7 @@ A tibble with the file names and paths relative to the folder.
 This function lists the files in a specific folder on the OwnCloud server using WebDAV, with authentication and error handling.
 }
 \examples{
-webdav_list_files("https://drive.expresso.pe.gov.br", "/Shared/der/app_painel/data/", "0c75a584-017d-103a-9c84-d34d2e44200a")
-
+\dontrun{
+webdav_list_files("_server_url_", "_folder_", "_dav_")
+}
 }
