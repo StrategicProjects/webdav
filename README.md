@@ -193,4 +193,4 @@ check_lock_support_webdav("https://drive.expresso.pe.gov.br", "/data/file.txt", 
 
 ## Conclusion
 
-The **`webdav`** R package provides a comprehensive interface for managing files and directories on WebDAV-enabled servers. With built-in functions for basic file management (uploading, downloading, deleting, copying), directory management, and resource locking, the package simplifies interactions with platforms like **OwnCloud**, **NextCloud**, and other WebDAV-compliant systems.
+The **`webdav`** R package provides a interface for managing files and directories on WebDAV-enabled servers. With basic file management (uploading, downloading, deleting, copying), directory management, and resource locking, the package simplifies interactions with platforms like **OwnCloud**, **NextCloud**, and other WebDAV-compliant systems.
