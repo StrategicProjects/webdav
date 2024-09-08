@@ -27,6 +27,7 @@ Suggests:
     testthat (>= 3.0.0),
     roxygen2,
     knitr,
+    fortunes,
     rmarkdown
 URL: https://github.com/StrategicProjects/webdav
 BugReports: https://github.com/StrategicProjects/webdav/issues
