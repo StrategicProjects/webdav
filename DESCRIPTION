@@ -1,0 +1,24 @@
+Package: webdav
+Type: Package
+Title: A Simple Interface for Interacting with WebDAV Servers
+Version: 0.1.0
+Authors@R: c(
+            person("Andre", "Leite", email = "leite@castlab.org", role = c("aut", "cre")),
+            person("Hugo", "Vaconcelos", email = "hugo.vasconcelos@ufpe.br", role = "aut"))
+Description: This package provides an easy-to-use interface for interacting with WebDAV servers,
+    including OwnCloud. It simplifies the use of WebDAV methods such as COPY, LOCK, MKCOL, MOVE,
+    PROPFIND, and others. With built-in authentication and request handling, it allows for easy
+    management of files and directories over the WebDAV protocol.
+Depends: R (>= 4.0.0)
+Imports: 
+    httr2 (>= 0.2.0),
+    glue (>= 1.4.2)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Suggests:
+    testthat (>= 3.0.0),
+    roxygen2
+URL: https://github.com/yourusername/webdav
+BugReports: https://github.com/yourusername/webdav/issues
