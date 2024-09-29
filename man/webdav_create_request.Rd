@@ -2,38 +2,43 @@
 % Please edit documentation in R/webdav.R
 \name{webdav_create_request}
 \alias{webdav_create_request}
-\title{Create a WebDAV request for the OwnCloud server}
+\title{Create a request for the WebDAV server}
 \usage{
 webdav_create_request(
   base_url,
-  path,
-  dav,
-  username = Sys.getenv("OWNCLOUD_USERNAME"),
-  password = Sys.getenv("OWNCLOUD_PASSWORD"),
+  username = Sys.getenv("WEBDAV_USERNAME"),
+  password = Sys.getenv("WEBDAV_PASSWORD"),
   verbose = FALSE
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
+\item{base_url}{The base URL of the WebDAV server (e.g., "https://example.com/remote.php/dav/files/").}
 
-\item{path}{The specific path for the resource in the OwnCloud WebDAV server.}
+\item{username}{The username for WebDAV authentication. Defaults to the "WEBDAV_USERNAME" environment variable.}
 
-\item{dav}{The WebDAV base path (e.g., "_dav_").}
+\item{password}{The password for WebDAV authentication. Defaults to the "WEBDAV_PASSWORD" environment variable.}
 
-\item{username}{The username for OwnCloud authentication. Defaults to the "webdav_USERNAME" environment variable.}
-
-\item{password}{The password for OwnCloud authentication. Defaults to the "webdav_PASSWORD" environment variable.}
-
-\item{verbose}{A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.}
+\item{verbose}{Logical. If TRUE, prints detailed messages during the request creation process.}
 }
 \value{
-An `httr2_request` object with authentication and base URL configured.
+An `httr2_request` object with authentication and base URL configured, or an error message if the connection fails.
 }
 \description{
-This function creates a base WebDAV request for the OwnCloud server with the proper authentication.
+This function creates a base request for the WebDAV server with proper authentication.
+It validates the provided parameters and handles errors during the connection setup.
 }
 \examples{
-\dontrun{
-webdav_create_request("_server_url_", "_folder_", "_dav_")
-}
+# Example usage with a public WebDAV server.
+# Visit test_server$url link to view the results of the operation.
+library(magrittr)
+library(httr2)
+test_server <- "https://www.webdavserver.com/" \%>\%
+  request() \%>\%
+  req_retry(max_tries = 3, max_seconds = 4, backoff =  ~ 1) \%>\%
+  req_perform() \%>\%
+  try(silent = TRUE)
+
+# Create a request
+if (class(test_server) != "try-error")
+  req <- webdav_create_request(base_url = test_server$url, verbose = TRUE)
 }

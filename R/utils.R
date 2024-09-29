@@ -12,11 +12,8 @@
 #' @importFrom glue glue
 #'
 #' @examples
-#' \dontrun{
 #' check_and_load_package("httr2")
 #' check_and_load_package("xml2")
-#' }
-#'
 #' @export
 check_and_load_package <- function(package_name) {
   # Check if the package is installed
@@ -36,7 +33,7 @@ check_and_load_package <- function(package_name) {
   }
 }
 
-#' Handle HTTP response from OwnCloud
+#' Handle HTTP response from Server
 #'
 #' This function processes the response from the WebDAV server, checking for errors.
 #'
@@ -50,7 +47,6 @@ handle_response <- function(response) {
   if (response$status_code >= 400) {
     stop("HTTP request failed with status: ", response$status_code, " - ", response$status_msg)
   }
-
   # Return the response content
   response
 }

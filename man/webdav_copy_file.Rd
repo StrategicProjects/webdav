@@ -2,38 +2,52 @@
 % Please edit documentation in R/webdav.R
 \name{webdav_copy_file}
 \alias{webdav_copy_file}
-\title{Copy a resource on the OwnCloud server using WebDAV}
+\title{Copy a resource on the WebDAV server}
 \usage{
 webdav_copy_file(
   base_url,
-  source_path,
-  destination_path,
-  dav,
-  username = Sys.getenv("OWNCLOUD_USERNAME"),
-  password = Sys.getenv("OWNCLOUD_PASSWORD")
+  from_path,
+  to_path,
+  username = Sys.getenv("WEBDAV_USERNAME"),
+  password = Sys.getenv("WEBDAV_PASSWORD"),
+  verbose = FALSE
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
+\item{base_url}{The base URL of the WebDAV server.}
 
-\item{source_path}{The source path of the resource to copy.}
+\item{from_path}{The source path of the resource to copy.}
 
-\item{destination_path}{The destination path where the resource will be copied.}
+\item{to_path}{The destination path where the resource will be copied.}
 
-\item{dav}{The WebDAV base path (e.g., "_dav_").}
+\item{username}{The username for WebDAV authentication. Defaults to the "WEBDAV_USERNAME" environment variable.}
 
-\item{username}{The username for OwnCloud authentication.}
+\item{password}{The password for WebDAV authentication. Defaults to the "WEBDAV_PASSWORD" environment variable.}
 
-\item{password}{The password for OwnCloud authentication.}
+\item{verbose}{Logical. If TRUE, prints detailed messages during the copy process.}
 }
 \value{
 Logical value indicating whether the resource was copied successfully.
 }
 \description{
-This function copies a resource from one URI to another on the OwnCloud server using the WebDAV COPY method.
+This function copies a resource from one URI to another on the WebDAV server using the COPY method.
+It validates the provided parameters and handles errors during the copy process.
 }
 \examples{
-\dontrun{
-webdav_copy_file("_server_url_", "_file_", "_resource_", "_dav_")
-}
+# Example usage with a public WebDAV server.
+# Visit test_server$url link to view the results of the operation.
+library(magrittr)
+library(httr2)
+test_server <- "https://www.webdavserver.com/" \%>\%
+  request() \%>\%
+  req_retry(max_tries = 3, max_seconds = 4, backoff =  ~ 1) \%>\%
+  req_perform() \%>\%
+  try(silent = TRUE)
+
+# Copy a file from one path to another
+if (class(test_server) != "try-error")
+  webdav_copy_file(base_url = test_server$url,
+    from_path = "Project.pdf",
+    to_path = "New_Project.pdf",
+    verbose = TRUE)
 }

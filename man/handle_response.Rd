@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{handle_response}
 \alias{handle_response}
-\title{Handle HTTP response from OwnCloud}
+\title{Handle HTTP response from Server}
 \usage{
 handle_response(response)
 }

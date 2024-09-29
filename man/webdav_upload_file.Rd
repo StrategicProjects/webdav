@@ -2,45 +2,53 @@
 % Please edit documentation in R/webdav.R
 \name{webdav_upload_file}
 \alias{webdav_upload_file}
-\title{Upload a file to the OwnCloud server using WebDAV}
+\title{Upload a file to the WebDAV server}
 \usage{
 webdav_upload_file(
   base_url,
-  file_path,
-  upload_path,
-  dav,
-  username = Sys.getenv("OWNCLOUD_USERNAME"),
-  password = Sys.getenv("OWNCLOUD_PASSWORD"),
+  local_path,
+  server_path = "",
+  username = Sys.getenv("WEBDAV_USERNAME"),
+  password = Sys.getenv("WEBDAV_PASSWORD"),
   timeout = 300,
   verbose = FALSE
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
+\item{base_url}{The base URL of the WebDAV server.}
 
-\item{file_path}{The local path of the file to be uploaded.}
+\item{local_path}{The local path of the file to be uploaded.}
 
-\item{upload_path}{The folder path on the OwnCloud server where the file will be uploaded.}
+\item{server_path}{The folder path on the WebDAV server where the file will be uploaded.}
 
-\item{dav}{The WebDAV base path (e.g., "_dav_").}
+\item{username}{The username for WebDAV authentication. Defaults to the "WEBDAV_USERNAME" environment variable.}
 
-\item{username}{The username for OwnCloud authentication.}
-
-\item{password}{The password for OwnCloud authentication.}
+\item{password}{The password for WebDAV authentication. Defaults to the "WEBDAV_PASSWORD" environment variable.}
 
 \item{timeout}{The timeout for the upload request in seconds (default is 300 seconds).}
 
-\item{verbose}{A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.}
+\item{verbose}{Logical value indicating whether to print detailed debug messages. When TRUE, the function outputs additional information about its progress and actions.}
 }
 \value{
 Logical value indicating whether the file was uploaded successfully.
 }
 \description{
-This function uploads a file to a specific folder on the OwnCloud server using WebDAV, with authentication and error handling.
+This function uploads a file to a specific folder on the WebDAV server. It validates the provided parameters and handles errors during the process.
 }
 \examples{
-\dontrun{
-webdav_upload_file("_server_url_", "_file_", "_folder_", "_dav_")
-}
+# Example usage with a public WebDAV server.
+# Visit test_server$url link to view the results of the operation.
+library(magrittr)
+library(httr2)
+test_server <- "https://www.webdavserver.com/" \%>\%
+  request() \%>\%
+  req_retry(max_tries = 3, max_seconds = 4, backoff =  ~ 1) \%>\%
+  req_perform() \%>\%
+  try(silent = TRUE)
 
+# Upload a file
+file_test <- tempfile(pattern = "teste_", fileext = ".txt")
+cat("Text file content", file = file_test)
+if (class(test_server) != "try-error")
+  webdav_upload_file(base_url = test_server$url, local_path = file_test, verbose = TRUE)
 }

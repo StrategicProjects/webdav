@@ -19,9 +19,6 @@ If the package is not installed, it will be automatically installed. After
 installation (if necessary), the package is loaded into the session.
 }
 \examples{
-\dontrun{
 check_and_load_package("httr2")
 check_and_load_package("xml2")
-}
-
 }

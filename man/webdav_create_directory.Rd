@@ -2,35 +2,47 @@
 % Please edit documentation in R/webdav.R
 \name{webdav_create_directory}
 \alias{webdav_create_directory}
-\title{Create a collection (directory) on the OwnCloud server using WebDAV}
+\title{Create a collection (directory) on a WebDAV server}
 \usage{
 webdav_create_directory(
   base_url,
   folder_path,
-  dav,
-  username = Sys.getenv("OWNCLOUD_USERNAME"),
-  password = Sys.getenv("OWNCLOUD_PASSWORD")
+  username = Sys.getenv("WEBDAV_USERNAME"),
+  password = Sys.getenv("WEBDAV_PASSWORD"),
+  verbose = FALSE
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
+\item{base_url}{The base URL of the WebDAV server (e.g., "https://example.com/remote.php/dav/files/").}
 
 \item{folder_path}{The path of the directory to create.}
 
-\item{dav}{The WebDAV base path (e.g., "_dav_").}
+\item{username}{The username for WebDAV authentication. Defaults to the "WEBDAV_USERNAME" environment variable.}
 
-\item{username}{The username for OwnCloud authentication.}
+\item{password}{The password for WebDAV authentication. Defaults to the "WEBDAV_PASSWORD" environment variable.}
 
-\item{password}{The password for OwnCloud authentication.}
+\item{verbose}{Logical. If TRUE, prints detailed messages during the directory creation process.}
 }
 \value{
 Logical value indicating whether the collection was created successfully.
 }
 \description{
-This function creates a collection (directory) on the OwnCloud server using the WebDAV MKCOL method.
+This function creates a collection (directory/folder) on the WebDAV server
+using the MKCOL method. It validates parameters and handles errors during the process.
 }
 \examples{
-\dontrun{
-webdav_create_directory("_server_url_", "/Shared/der/app_painel/new_folder/", "_dav_")
-}
+
+# Example usage with a public WebDAV server.
+# Visit test_server$url link to view the results of the operation.
+library(magrittr)
+library(httr2)
+test_server <- "https://www.webdavserver.com/" \%>\%
+  request() \%>\%
+  req_retry(max_tries = 3, max_seconds = 4, backoff =  ~ 1) \%>\%
+  req_perform() \%>\%
+  try(silent = TRUE)
+
+# Create a directory on the WebDAV server
+if (class(test_server) != "try-error")
+  webdav_create_directory(base_url = test_server$url, folder_path = "Test_Folder", verbose = TRUE)
 }

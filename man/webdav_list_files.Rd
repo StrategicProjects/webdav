@@ -2,41 +2,48 @@
 % Please edit documentation in R/webdav.R
 \name{webdav_list_files}
 \alias{webdav_list_files}
-\title{List files from a specific folder on OwnCloud server using WebDAV}
+\title{List files from a specific folder on WebDAV server}
 \usage{
 webdav_list_files(
   base_url,
-  folder_path,
-  dav,
-  username = Sys.getenv("OWNCLOUD_USERNAME"),
-  password = Sys.getenv("OWNCLOUD_PASSWORD"),
+  folder_path = NULL,
+  username = Sys.getenv("WEBDAV_USERNAME"),
+  password = Sys.getenv("WEBDAV_PASSWORD"),
   depth = 1,
   verbose = FALSE
 )
 }
 \arguments{
-\item{base_url}{The base URL of the OwnCloud server (e.g., "_server_url_").}
+\item{base_url}{The base URL of the WebDAV server.}
 
-\item{folder_path}{The path inside OwnCloud where the files are located.}
+\item{folder_path}{The path inside WebDAV where the files are located. If not provided or empty, the root folder will be listed.}
 
-\item{dav}{The WebDAV base path (e.g., "_dav_").}
+\item{username}{The username for WebDAV authentication. Defaults to the "WEBDAV_USERNAME" environment variable.}
 
-\item{username}{The username for OwnCloud authentication.}
-
-\item{password}{The password for OwnCloud authentication.}
+\item{password}{The password for WebDAV authentication. Defaults to the "WEBDAV_PASSWORD" environment variable.}
 
 \item{depth}{The depth of the PROPFIND request (default is 1).}
 
-\item{verbose}{A logical value indicating whether to print detailed debug messages. When set to TRUE, the function will output additional information about its progress and actions. Default is FALSE.}
+\item{verbose}{Logical value indicating whether to print detailed debug messages. When TRUE, the function outputs additional information about its progress and actions.}
 }
 \value{
-A tibble with the file names and paths relative to the folder.
+A tibble with the file names and paths relative to the folder, or NULL if an error occurs.
 }
 \description{
-This function lists the files in a specific folder on the OwnCloud server using WebDAV, with authentication and error handling.
+This function lists the files in a specific folder on the WebDAV server. If no folder path is provided, it lists files from the root directory. The function validates the provided parameters and handles errors during the process.
 }
 \examples{
-\dontrun{
-webdav_list_files("_server_url_", "_folder_", "_dav_")
-}
+# Example usage with a public WebDAV server.
+# Visit test_server$url link to view the results of the operation.
+library(magrittr)
+library(httr2)
+test_server <- "https://www.webdavserver.com/" \%>\%
+  request() \%>\%
+  req_retry(max_tries = 3, max_seconds = 4, backoff =  ~ 1) \%>\%
+  req_perform() \%>\%
+  try(silent = TRUE)
+
+# List files in a directory
+if (class(test_server) != "try-error")
+  webdav_list_files(base_url = test_server$url, folder_path = "Sales/", verbose = TRUE)
 }
