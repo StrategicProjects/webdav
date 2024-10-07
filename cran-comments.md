@@ -4,19 +4,8 @@
 
 * This is a new release.
 
+### Changes in Version 1.2.0
 
-Dear Konstanze Lauseker,
-
-Thank you very much for your valuable feedback and suggestions. I have carefully reviewed your comments and made the necessary corrections as outlined below:
-
->	1.	Single quotes around HTTP methods:
-
-I have removed the single quotes around the HTTP methods (‘COPY’, ‘LOCK’, ‘MKCOL’, ‘MOVE’, and ‘PROPFIND’) as requested. Single quotes are now only used around software or package names.
-
->	2.	Web reference in the DESCRIPTION file:
-
-I have added the web reference for the API in the form <https://.....>, ensuring that the link is automatically generated without spaces after ‘https:’.
-
->	3.	Examples wrapped in \dontrun{}:
-
-While addressing the other points, I have updated the examples to utilize a public WebDAV server for testing. This allows the examples to be executed without requiring private authentication credentials. The public server provides a controlled environment to demonstrate functionality, while avoiding issues related to access restrictions. As such, the examples are no longer wrapped in \dontrun{}, and can now be fully executed during testing.
+* [New Feature] Added a new function `webdav_download_file()` to download files from a WebDAV server to a local directory.
+  - This function allows users to specify a file on the server and download it to a specified local path.
+  - Verbose mode (`verbose = TRUE`) provides detailed output of the download process, including the file path on the server and local destination.

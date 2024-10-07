@@ -1,7 +1,8 @@
 Package: webdav
 Type: Package
 Title: A Simple Interface for Interacting with 'WebDAV' Servers
-Version: 0.1.0
+Version: 0.1.1
+Date: 2024-10-07
 Authors@R: c(
             person("Andre", "Leite", email = "leite@castlab.org", role = c("aut", "cre")),
             person("Hugo", "Vaconcelos", email = "hugo.vasconcelos@ufpe.br", role = "aut"),
