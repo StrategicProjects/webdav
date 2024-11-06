@@ -32,4 +32,6 @@ Suggests:
     knitr,
     fortunes,
     rmarkdown
-URL: <https://github.com/StrategicProjects/webdav>
+URL: <https://github.com/StrategicProjects/webdav>, https://strategicprojects.github.io/webdav/
+Config/Needs/website: tidyverse/tidytemplate
+
