@@ -35,10 +35,10 @@ footer:
       #p: "\n\n"
       rmd: |
         **WebDAV** is part of an ecosystem of R packages for data analysis and
-        computational document processing, developed by the [Secretaria Executiva
-        de Monitoramento Estratégico](https://monitoramento.sepe.pe.gov.br),
-        a division of the Secretaria de Projetos Estratégicos in the Government
-        of Pernambuco, Brazil.
+        computational document processing<br>developed at the [Secretaria Executiva
+        de Monitoramento Estratégico](https://monitoramento.sepe.pe.gov.br).
+      developed_by: |
+        André Leite, Diogo Bezerra and Hugo Medeiros
 
 development:
   mode: auto

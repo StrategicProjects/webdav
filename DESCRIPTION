@@ -1,8 +1,8 @@
 Package: webdav
 Type: Package
 Title: A Simple Interface for Interacting with 'WebDAV' Servers
-Version: 0.1.1
-Date: 2024-10-07
+Version: 0.1.2
+Date: 2024-11-25
 Authors@R: c(
             person("Andre", "Leite", email = "leite@castlab.org", role = c("aut", "cre")),
             person("Hugo", "Vaconcelos", email = "hugo.vasconcelos@ufpe.br", role = "aut"),
@@ -31,6 +31,6 @@ Suggests:
     roxygen2,
     knitr,
     fortunes,
-    rmarkdown
-URL: <https://github.com/StrategicProjects/webdav>, https://strategicprojects.github.io/webdav/
+    rmarkdown,
+URL: <https://monitoramento.sepe.pe.gov.br/webdav>, <https://github.com/StrategicProjects/webdav>
 Config/Needs/website: tidyverse/tidytemplate
