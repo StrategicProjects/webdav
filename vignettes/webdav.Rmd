@@ -1,13 +1,18 @@
 ---
-output: github_document
+title: "Get Started"
+author: "André Leite"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-# Get Started 
 
 This overview introduces the `webdav` R package, which provides an interface for managing files on WebDAV-compliant servers, enabling file operations such as uploading, downloading, copying, moving, and deleting resources.
 
@@ -258,7 +263,7 @@ This function downloads a file from the WebDAV server and saves it to a local di
 
 **Parameters**:
 
-1. `base_url`: The base URL of the WebDAV server (e.g., "https://example.com/remote.php/dav/files/").
+1. `base_url`: The base URL of the WebDAV server.
 1. `file_path`: The path of the file on the WebDAV server to download (relative to the 'base_url').
 1. `destination_path`: The local directory where the downloaded file will be saved. Defaults to the current directory.
 1. `username`: The username for WebDAV authentication. Defaults to the "WEBDAV_USERNAME" environment variable.

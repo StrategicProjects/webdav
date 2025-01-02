@@ -1,6 +1,7 @@
-url: https://strategicprojects.github.io/webdav/
+url: https://monitoramento.sepe.pe.gov.br/webdav/
 template:
-  light-switch: true
+  light-switch: false
+  dark-mode: false
   trailing_slash_redirect: true
   package: tidytemplate
   bootstrap: 5
@@ -14,9 +15,20 @@ template:
 
   # custom footer for rmarkdown ecosystem
 
+includes:
+  in_header: |
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KJ9FHBXDD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5KJ9FHBXDD');
+    </script>
+
 navbar:
   structure:
-    right: [search, github, lightswitch]
+    right: [search, github]
   components:
     github:
       icon: fa-github
