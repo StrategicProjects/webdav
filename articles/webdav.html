@@ -5,28 +5,28 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • webdav</title>
+<title>Get Started • webdav</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get Started">
 </head>
 <body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-none" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">webdav</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,14 +50,6 @@
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/StrategicProjects/webdav" aria-label="Github"><span class="fa fa-github"></span></a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
-<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
-  </ul>
-</li>
       </ul>
 </div>
 
@@ -70,8 +62,11 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1></h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Get Started</h1>
+                        <h4 data-toc-skip class="author">André
+Leite</h4>
             
+            <h4 data-toc-skip class="date">2025-01-02</h4>
       
 
       <div class="d-none name"><code>webdav.Rmd</code></div>
@@ -79,19 +74,16 @@
 
     
     
-<div class="section level2">
-<h2 id="get-started">Get Started<a class="anchor" aria-label="anchor" href="#get-started"></a>
-</h2>
 <p>This overview introduces the <code>webdav</code> R package, which
 provides an interface for managing files on WebDAV-compliant servers,
 enabling file operations such as uploading, downloading, copying,
 moving, and deleting resources.</p>
+<div class="section level2">
+<h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h2>
 <div class="section level3">
-<h3 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+<h3 id="creating-a-webdav-request">1. Creating a WebDAV Request<a class="anchor" aria-label="anchor" href="#creating-a-webdav-request"></a>
 </h3>
-<div class="section level4">
-<h4 id="creating-a-webdav-request">1. Creating a WebDAV Request<a class="anchor" aria-label="anchor" href="#creating-a-webdav-request"></a>
-</h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/webdav_create_request.html">webdav_create_request</a></span><span class="op">(</span><span class="va">base_url</span>, <span class="va">username</span>, <span class="va">password</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>This function creates a basic authenticated WebDAV request for the
@@ -126,9 +118,9 @@ the provided username and password and returns a request object.</p>
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">test_server</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"try-error"</span><span class="op">)</span></span>
 <span>  <span class="va">req</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/webdav_create_request.html">webdav_create_request</a></span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">test_server</span><span class="op">$</span><span class="va">url</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="copying-files">2. Copying Files<a class="anchor" aria-label="anchor" href="#copying-files"></a>
-</h4>
+<div class="section level3">
+<h3 id="copying-files">2. Copying Files<a class="anchor" aria-label="anchor" href="#copying-files"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/webdav_copy_file.html">webdav_copy_file</a></span><span class="op">(</span><span class="va">base_url</span>, <span class="va">from_path</span>, <span class="va">to_path</span>, <span class="va">username</span>, <span class="va">password</span><span class="op">)</span></span></code></pre></div>
 <p>This function copies a file or directory from one path to another on
@@ -166,9 +158,9 @@ copied.</li>
 <span>    to_path <span class="op">=</span> <span class="st">"New_Project.pdf"</span>,</span>
 <span>    verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="creating-a-directory">3. Creating a Directory<a class="anchor" aria-label="anchor" href="#creating-a-directory"></a>
-</h4>
+<div class="section level3">
+<h3 id="creating-a-directory">3. Creating a Directory<a class="anchor" aria-label="anchor" href="#creating-a-directory"></a>
+</h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/webdav_create_directory.html">webdav_create_directory</a></span><span class="op">(</span><span class="va">base_url</span>, <span class="va">folder_path</span>, <span class="va">username</span>, <span class="va">password</span><span class="op">)</span></span></code></pre></div>
 <p>This function creates a new directory (or collection) on the WebDAV
@@ -203,9 +195,9 @@ server using the MKCOL method.</p>
 <span>    folder_path <span class="op">=</span> <span class="st">"Test_Folder"</span>, </span>
 <span>    verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="deleting-a-file-or-directory">4. Deleting a File or Directory<a class="anchor" aria-label="anchor" href="#deleting-a-file-or-directory"></a>
-</h4>
+<div class="section level3">
+<h3 id="deleting-a-file-or-directory">4. Deleting a File or Directory<a class="anchor" aria-label="anchor" href="#deleting-a-file-or-directory"></a>
+</h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/webdav_delete_resource.html">webdav_delete_resource</a></span><span class="op">(</span></span>
 <span>  <span class="va">base_url</span>, </span>
@@ -239,9 +231,9 @@ authentication.</p>
 <span>  resource_path <span class="op">=</span> <span class="st">"Notes.txt"</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="listing-files-in-a-directory">5. Listing Files in a Directory<a class="anchor" aria-label="anchor" href="#listing-files-in-a-directory"></a>
-</h4>
+<div class="section level3">
+<h3 id="listing-files-in-a-directory">5. Listing Files in a Directory<a class="anchor" aria-label="anchor" href="#listing-files-in-a-directory"></a>
+</h3>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/webdav_list_files.html">webdav_list_files</a></span><span class="op">(</span></span>
 <span>  <span class="va">base_url</span>, </span>
@@ -286,9 +278,9 @@ using the PROPFIND method.</p>
 <span>    folder_path <span class="op">=</span> <span class="st">"Sales/"</span>, </span>
 <span>    verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="uploading-a-file">6. Uploading a File<a class="anchor" aria-label="anchor" href="#uploading-a-file"></a>
-</h4>
+<div class="section level3">
+<h3 id="uploading-a-file">6. Uploading a File<a class="anchor" aria-label="anchor" href="#uploading-a-file"></a>
+</h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/webdav_upload_file.html">webdav_upload_file</a></span><span class="op">(</span></span>
 <span>  <span class="va">base_url</span>, </span>
@@ -335,9 +327,9 @@ is 300 seconds).</li>
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">test_server</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"try-error"</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="../reference/webdav_upload_file.html">webdav_upload_file</a></span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">test_server</span><span class="op">$</span><span class="va">url</span>, local_path <span class="op">=</span> <span class="va">file_test</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="download-a-file">7. Download a file<a class="anchor" aria-label="anchor" href="#download-a-file"></a>
-</h4>
+<div class="section level3">
+<h3 id="download-a-file">7. Download a file<a class="anchor" aria-label="anchor" href="#download-a-file"></a>
+</h3>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/webdav_download_file.html">webdav_download_file</a></span><span class="op">(</span><span class="va">base_url</span>, <span class="va">file_path</span>, <span class="va">destination_path</span>, <span class="va">username</span>, <span class="va">password</span>, <span class="va">verbose</span><span class="op">)</span></span></code></pre></div>
 <p>This function downloads a file from the WebDAV server and saves it to
@@ -346,7 +338,7 @@ and optionally prints detailed logs if requested.</p>
 <p><strong>Parameters</strong>:</p>
 <ol style="list-style-type: decimal">
 <li>
-<code>base_url</code>: The base URL of the WebDAV server (e.g., “<a href="https://example.com/remote.php/dav/files/" class="external-link uri">https://example.com/remote.php/dav/files/</a>”).</li>
+<code>base_url</code>: The base URL of the WebDAV server.</li>
 <li>
 <code>file_path</code>: The path of the file on the WebDAV server to
 download (relative to the ‘base_url’).</li>
@@ -382,16 +374,15 @@ during the download process.</li>
 <span><span class="co"># Visit test_server$url to view the results of the operation.</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
-</h3>
+<div class="section level2">
+<h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
+</h2>
 <p>The <strong><code>webdav</code></strong> R package provides a
 interface for managing files and directories on WebDAV-enabled servers.
 With basic file management (uploading, downloading, deleting, copying),
 directory management, and resource locking, the package simplifies
 interactions with platforms like <strong>OwnCloud</strong>,
 <strong>NextCloud</strong>, and other WebDAV-compliant systems.</p>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
