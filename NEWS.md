@@ -1,6 +1,6 @@
-# webdav 0.1.1
+# webdav 0.1.3
 
-* Added a `NEWS.md` file to track changes to the package.
+* Expose lastmodified and contentlength via webdav_list_files. Idea from Benjamin Buchwitz (bchwtz) issue: https://github.com/StrategicProjects/webdav/issues/1 
 
 # webdav 0.1.2
 
@@ -10,6 +10,6 @@
   
 * Added examples using demo WebDav server.  
 
-# webdav 0.1.3
+# webdav 0.1.1
 
-* Expose lastmodified and contentlength via webdav_list_files. Idea from Benjamin Buchwitz (bchwtz) issue: https://github.com/StrategicProjects/webdav/issues/1 
+* Added a `NEWS.md` file to track changes to the package.
