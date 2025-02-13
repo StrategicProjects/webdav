@@ -1,3 +1,9 @@
+# webdav 0.1.4
+
+*	Changed the license to MIT
+*	Adjusted the time limits in the examples
+* Added an internet connection test to ensure network availability
+
 # webdav 0.1.3
 
 * Expose lastmodified and contentlength via webdav_list_files. Idea from Benjamin Buchwitz (bchwtz) issue: https://github.com/StrategicProjects/webdav/issues/1 
