@@ -4,7 +4,7 @@
 
 * This is a new release.
 
-### Changes in Version 1.2.0
+### Changes in Version .1.4
 
 * [New Feature] Added a new function `webdav_download_file()` to download files from a WebDAV server to a local directory.
   - This function allows users to specify a file on the server and download it to a specified local path.
@@ -23,3 +23,7 @@
     - From: DESCRIPTION
     - Status: Error
     - Message: Connection timed out after 60002 milliseconds
+
+### Changes in Version 0.1.5 
+
+* fix: correct faulty example
