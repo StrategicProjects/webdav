@@ -564,14 +564,16 @@ webdav_list_files <- function(
       contents <- map_dfr(webdav_list, function(x) {
         props <- x$propstat$prop
         tibble(
-          display_name = props$displayname[[1]] %||% NA_character_,
-          full_path = x$href[[1]] %||% NA_character_,
+          #display_name = props$displayname[[1]] %||% NA_character_,
+          full_path = httpuv::decodeURI(x$href[[1]]) %||% NA_character_,
           creation_date = props$creationdate[[1]] %||% NA_character_,
           last_modified = props$getlastmodified[[1]] %||% NA_character_,
           content_length = as.numeric(props$getcontentlength[[1]] %||% NA),
           is_folder = !is.null(props$resourcetype$collection) || props$isFolder[[1]] %in% c("1", "t")
         )
       }) |>
+        mutate(is_folder = replace_na(is_folder, FALSE)) %>%
+        mutate(display_name = str_remove(full_path, first(full_path)), .before = full_path) %>%
         slice_tail(n = -1)
 
       if (verbose) {
