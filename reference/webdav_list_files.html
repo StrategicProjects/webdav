@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">webdav</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,20 +114,6 @@
 <span class="r-in"><span><span class="co"># List files in a directory</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">test_server</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"try-error"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">webdav_list_files</span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">test_server</span><span class="op">$</span><span class="va">url</span>, folder_path <span class="op">=</span> <span class="st">"Sales/"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Listing files in folder: Sales/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Full URL: https://www.webdavserver.com/User10843ae/Sales</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Base URL: https://www.webdavserver.com/User10843ae/Sales</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Username: Not provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request object created successfully.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No authentication added.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Files listed successfully.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   contents   full_path                     last_modified content_length</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Australia/ https://www.webdavserver.com… Thu, 24 Apr …             <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Canada/    https://www.webdavserver.com… Thu, 24 Apr …             <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Europe/    https://www.webdavserver.com… Thu, 24 Apr …             <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> USA/       https://www.webdavserver.com… Thu, 24 Apr …             <span style="color: #BB0000;">NA</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

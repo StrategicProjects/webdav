@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">webdav</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +36,23 @@
 
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.6" id="webdav-016">webdav 0.1.6<a class="anchor" aria-label="anchor" href="#webdav-016"></a></h2>
+<div class="section level3">
+<h3 id="enhancements-0-1-6">Enhancements<a class="anchor" aria-label="anchor" href="#enhancements-0-1-6"></a></h3>
+<ul><li>Major improvements to the <code><a href="../reference/webdav_list_files.html">webdav_list_files()</a></code> function for better compatibility and robustness:
+<ul><li>Now dynamically detects and uses the correct XML namespace prefix from the server (<code>d</code>, <code>D</code>, or other), preventing XPath errors like <code>Undefined namespace prefix</code>.</li>
+<li>Uses <code>xml2::as_list()</code> to reliably parse the XML response structure.</li>
+<li>Ensures <code>content_length</code> is safely parsed and padded with <code>NA</code> where missing (e.g., for directories), preventing errors when creating the resulting <code>tibble</code>.</li>
+<li>Adds a new field <code>is_folder</code>, correctly identifying whether each resource is a directory.</li>
+<li>Improved documentation and output consistency with more informative column names (e.g., <code>display_name</code>, <code>full_path</code>, <code>creation_date</code>, etc.).</li>
+</ul></li>
+</ul></div>
+<div class="section level3">
+<h3 id="acknowledgements-0-1-6">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements-0-1-6"></a></h3>
+<p>Special thanks to <strong>Adrian Jusepeitis</strong> (University of Jena, Germany) for reporting two key issues related to XML namespace parsing and missing metadata in <code><a href="../reference/webdav_list_files.html">webdav_list_files()</a></code>, and for proposing initial fixes that inspired the improvements in this release.</p>
+</div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.4" id="webdav-014">webdav 0.1.4<a class="anchor" aria-label="anchor" href="#webdav-014"></a></h2><p class="text-muted">CRAN release: 2025-02-13</p>
 <ul><li>Changed the license to MIT</li>
