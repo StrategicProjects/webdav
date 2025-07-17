@@ -10,13 +10,11 @@
 #'
 #' @return An `httr2_request` object with authentication and base URL configured, or an error message if the connection fails.
 #' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
-#' @importFrom magrittr |>
 #' @examples
 #' # Example usage with a public WebDAV server.
 #' # Visit test_server$url link to view the results of the operation.
-#' library(magrittr)
 #' library(httr2)
-#' test_server <- "https://www.webdavserver.com/" |>
+#' test_server <- "http://webdavserver.net/" |>
 #'   request() |>
 #'   req_retry(max_tries = 1, max_seconds = 2, backoff =  ~ 1) |>
 #'   req_perform() |>
@@ -87,7 +85,6 @@ webdav_create_request <- function(base_url,
 #' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
 #' @importFrom glue glue
 #' @importFrom stringr str_remove
-#' @importFrom magrittr |>
 #' @export
 webdav_copy_file <- function(base_url, from_path, to_path,
                              username = Sys.getenv("WEBDAV_USERNAME"),
@@ -172,12 +169,10 @@ webdav_copy_file <- function(base_url, from_path, to_path,
 #' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
 #' @importFrom glue glue
 #' @importFrom stringr str_remove
-#' @importFrom magrittr |>
 #' @examples
 #' # Example usage with a public WebDAV server.
-#' library(magrittr)
 #' library(httr2)
-#' test_server <- "https://www.webdavserver.com/" |>
+#' test_server <- "http://webdavserver.net/" |>
 #'   request() |>
 #'   req_retry(max_tries = 1, max_seconds = 2, backoff =  ~ 1) |>
 #'   req_perform() |>
@@ -277,14 +272,12 @@ webdav_download_file <- function(base_url, file_path, destination_path = ".",
 #' @importFrom glue glue
 #' @importFrom httpuv encodeURI
 #' @importFrom stringr str_remove
-#' @importFrom magrittr |>
 #' @examples
 #'
 #' # Example usage with a public WebDAV server.
 #' # Visit test_server$url link to view the results of the operation.
-#' library(magrittr)
 #' library(httr2)
-#' test_server <- "https://www.webdavserver.com/" |>
+#' test_server <- "http://webdavserver.net/" |>
 #'   request() |>
 #'   req_retry(max_tries = 1, max_seconds = 2, backoff =  ~ 1) |>
 #'   req_perform() |>
@@ -369,9 +362,8 @@ webdav_create_directory <- function(base_url, folder_path,
 #' @examples
 #' # Example usage with a public WebDAV server.
 #' # Visit test_server$url link to view the results of the operation.
-#' library(magrittr)
 #' library(httr2)
-#' test_server <- "https://www.webdavserver.com/" |>
+#' test_server <- "http://webdavserver.net/" |>
 #'   request() |>
 #'   req_retry(max_tries = 1, max_seconds = 2, backoff =  ~ 1) |>
 #'   req_perform() |>
@@ -476,17 +468,17 @@ webdav_upload_file <- function(base_url,
 #' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
 #' @importFrom glue glue
 #' @importFrom dplyr filter mutate select arrange slice_tail
+#' @importFrom tidyr replace_na
+#' @importFrom purrr map_dfr
 #' @importFrom stringr str_detect str_remove
 #' @importFrom xml2 read_xml xml_find_all xml_text
 #' @importFrom httpuv encodeURI decodeURI
 #' @importFrom tibble tibble
-#' @importFrom magrittr |>
 #' @examples
 #' # Example usage with a public WebDAV server.
 #' # Visit test_server$url link to view the results of the operation.
-#' library(magrittr)
 #' library(httr2)
-#' test_server <- "https://www.webdavserver.com/" |>
+#' test_server <- "http://webdavserver.net/" |>
 #'   request() |>
 #'   req_retry(max_tries = 1, max_seconds = 2, backoff =  ~ 1) |>
 #'   req_perform() |>
@@ -561,7 +553,7 @@ webdav_list_files <- function(
         xml2::as_list()
 
       # Process and filter files, skipping the first entry (root or folder itself)
-      contents <- map_dfr(webdav_list, function(x) {
+      contents <- purrr::map_dfr(webdav_list, function(x) {
         props <- x$propstat$prop
         tibble(
           #display_name = props$displayname[[1]] %||% NA_character_,
@@ -572,8 +564,8 @@ webdav_list_files <- function(
           is_folder = !is.null(props$resourcetype$collection) || props$isFolder[[1]] %in% c("1", "t")
         )
       }) |>
-        mutate(is_folder = replace_na(is_folder, FALSE)) %>%
-        mutate(display_name = str_remove(full_path, first(full_path)), .before = full_path) %>%
+        mutate(is_folder = tidyr::replace_na(is_folder, FALSE)) %>%
+        mutate(display_name = stringr::str_remove(full_path, first(full_path)), .before = full_path) %>%
         slice_tail(n = -1)
 
       if (verbose) {
@@ -605,13 +597,11 @@ webdav_list_files <- function(
 #' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
 #' @importFrom glue glue
 #' @importFrom stringr str_remove
-#' @importFrom magrittr |>
 #' @examples
 #' # Example usage with a public WebDAV server.
 #' # Visit test_server$url link to view the results of the operation.
-#' library(magrittr)
 #' library(httr2)
-#' test_server <- "https://www.webdavserver.com/" |>
+#' test_server <- "http://webdavserver.net/" |>
 #'   request() |>
 #'   req_retry(max_tries = 1, max_seconds = 2, backoff =  ~ 1) |>
 #'   req_perform() |>
