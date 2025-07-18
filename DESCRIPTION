@@ -11,7 +11,7 @@ Description: An easy-to-use interface for interacting with 'WebDAV' servers,
     including 'OwnCloud'. It simplifies the use of 'WebDAV' methods such as COPY, MOVE, DELETE and others. 
     With built-in authentication and request handling, it allows for easy
     management of files and directories over the 'WebDAV' protocol.
-Depends: R (>= 4.0.0)
+Depends: R (>= 4.1.0)
 Imports: 
     httr2,
     httpuv,
@@ -19,7 +19,8 @@ Imports:
     dplyr,
     glue,
     stringr,
-    magrittr,
+    purrr,
+    tidyr,
     tibble,
     curl
 VignetteBuilder: knitr

@@ -467,7 +467,7 @@ webdav_upload_file <- function(base_url,
 #' Returns `NULL` if an error occurs during the execution of the function.
 #' @importFrom httr2 req_perform req_auth_basic req_headers req_method req_body_raw req_options
 #' @importFrom glue glue
-#' @importFrom dplyr filter mutate select arrange slice_tail
+#' @importFrom dplyr filter mutate select arrange slice_tail first
 #' @importFrom tidyr replace_na
 #' @importFrom purrr map_dfr
 #' @importFrom stringr str_detect str_remove
@@ -556,7 +556,6 @@ webdav_list_files <- function(
       contents <- purrr::map_dfr(webdav_list, function(x) {
         props <- x$propstat$prop
         tibble(
-          #display_name = props$displayname[[1]] %||% NA_character_,
           full_path = httpuv::decodeURI(x$href[[1]]) %||% NA_character_,
           creation_date = props$creationdate[[1]] %||% NA_character_,
           last_modified = props$getlastmodified[[1]] %||% NA_character_,
@@ -564,8 +563,8 @@ webdav_list_files <- function(
           is_folder = !is.null(props$resourcetype$collection) || props$isFolder[[1]] %in% c("1", "t")
         )
       }) |>
-        mutate(is_folder = tidyr::replace_na(is_folder, FALSE)) %>%
-        mutate(display_name = stringr::str_remove(full_path, first(full_path)), .before = full_path) %>%
+        mutate(is_folder = tidyr::replace_na(is_folder, FALSE)) |>
+        mutate(display_name = stringr::str_remove(full_path, dplyr::first(full_path)), .before = full_path) |>
         slice_tail(n = -1)
 
       if (verbose) {
