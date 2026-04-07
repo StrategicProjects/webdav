@@ -10,15 +10,15 @@ check_and_load_package(package_name)
 \item{package_name}{A string with the name of the package to check and load.}
 }
 \value{
-Invisibly returns `TRUE` if the package is successfully loaded or installed and loaded.
-If the installation or loading fails, an error will be raised.
+Invisibly returns `TRUE` if the package namespace is available.
 }
 \description{
-This function checks if a specified package is installed in the R environment.
-If the package is not installed, it will be automatically installed. After
-installation (if necessary), the package is loaded into the session.
+`r lifecycle::badge("deprecated")`
+
+This function is deprecated because all required packages are declared in
+the package DESCRIPTION file and are automatically available. There is no
+need to check or load them at runtime.
 }
 \examples{
 check_and_load_package("httr2")
-check_and_load_package("xml2")
 }
