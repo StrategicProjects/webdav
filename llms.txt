@@ -3,7 +3,8 @@
 ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/webdav)  
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/webdav)
   ![License](https://img.shields.io/badge/license-MIT-darkviolet.svg) 
-![](https://img.shields.io/badge/devel%20version-0.1.6-blue.svg)
+![Devel
+Badge](https://img.shields.io/badge/devel%20version-0.1.6-blue.svg)
 
 WebDAV (*Web Distributed Authoring and Versioning*) is an extension of
 the HTTP protocol that allows users to collaboratively edit and manage
@@ -27,23 +28,21 @@ Some platforms that implement WebDAV are:
 
 ## All functions
 
-- [`check_and_load_package()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/check_and_load_package.md)
-  : Check if a package is installed and load it
-- [`handle_response()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/handle_response.md)
+- [`handle_response()`](https://strategicprojects.github.io/webdav/reference/handle_response.md)
   : Handle HTTP response from Server
-- [`webdav_copy_file()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_copy_file.md)
+- [`webdav_copy_file()`](https://strategicprojects.github.io/webdav/reference/webdav_copy_file.md)
   : Copy a resource on the WebDAV server
-- [`webdav_create_directory()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_create_directory.md)
+- [`webdav_create_directory()`](https://strategicprojects.github.io/webdav/reference/webdav_create_directory.md)
   : Create a collection (directory) on a WebDAV server
-- [`webdav_create_request()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_create_request.md)
+- [`webdav_create_request()`](https://strategicprojects.github.io/webdav/reference/webdav_create_request.md)
   : Create a request for the WebDAV server
-- [`webdav_delete_resource()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_delete_resource.md)
+- [`webdav_delete_resource()`](https://strategicprojects.github.io/webdav/reference/webdav_delete_resource.md)
   : Delete a file or directory from the WebDAV server
-- [`webdav_download_file()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_download_file.md)
+- [`webdav_download_file()`](https://strategicprojects.github.io/webdav/reference/webdav_download_file.md)
   : Download a file from the WebDAV server
-- [`webdav_list_files()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_list_files.md)
+- [`webdav_list_files()`](https://strategicprojects.github.io/webdav/reference/webdav_list_files.md)
   : List files from a specific folder on WebDAV server
-- [`webdav_upload_file()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_upload_file.md)
+- [`webdav_upload_file()`](https://strategicprojects.github.io/webdav/reference/webdav_upload_file.md)
   : Upload a file to the WebDAV server
 
 # Articles
@@ -51,6 +50,6 @@ Some platforms that implement WebDAV are:
 ### All vignettes
 
 - [Using Environment Variables for Security in the webdav
-  Package](https://monitoramento.sepe.pe.gov.br/webdav/articles/env_variables.md):
+  Package](https://strategicprojects.github.io/webdav/articles/env_variables.md):
 - [Get
-  Started](https://monitoramento.sepe.pe.gov.br/webdav/articles/webdav.md):
+  Started](https://strategicprojects.github.io/webdav/articles/webdav.md):

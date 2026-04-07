@@ -4,10 +4,9 @@
 
 ### Breaking Changes
 
-- [`check_and_load_package()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/check_and_load_package.md)
-  is now deprecated. All required packages are declared in `DESCRIPTION`
-  and loaded automatically by R. Calling this function will issue a
-  deprecation warning.
+- `check_and_load_package()` is now deprecated. All required packages
+  are declared in `DESCRIPTION` and loaded automatically by R. Calling
+  this function will issue a deprecation warning.
 
 ### Enhancements
 
@@ -25,14 +24,13 @@
   [`httr2::resp_status()`](https://httr2.r-lib.org/reference/resp_status.html)
   import to NAMESPACE.
 - Fixed
-  [`handle_response()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/handle_response.md)
+  [`handle_response()`](https://strategicprojects.github.io/webdav/reference/handle_response.md)
   to use
   [`httr2::resp_status()`](https://httr2.r-lib.org/reference/resp_status.html)
   instead of the legacy `response$status_code` accessor (httr v1
   syntax).
-- Removed redundant runtime calls to
-  [`check_and_load_package()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/check_and_load_package.md)
-  inside all exported functions — dependencies declared in `Imports` are
+- Removed redundant runtime calls to `check_and_load_package()` inside
+  all exported functions — dependencies declared in `Imports` are
   guaranteed to be available and do not need manual loading.
 
 ### Authors
@@ -47,7 +45,7 @@ CRAN release: 2025-07-17
 ### Enhancements
 
 - Major improvements to the
-  [`webdav_list_files()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_list_files.md)
+  [`webdav_list_files()`](https://strategicprojects.github.io/webdav/reference/webdav_list_files.md)
   function for better compatibility and robustness:
   - Now dynamically detects and uses the correct XML namespace prefix
     from the server (`d`, `D`, or other), preventing XPath errors like
@@ -67,7 +65,7 @@ CRAN release: 2025-07-17
 Special thanks to **Adrian Jusepeitis** (University of Jena, Germany)
 for reporting two key issues related to XML namespace parsing and
 missing metadata in
-[`webdav_list_files()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_list_files.md),
+[`webdav_list_files()`](https://strategicprojects.github.io/webdav/reference/webdav_list_files.md),
 and for proposing initial fixes that inspired the improvements in this
 release.
 
@@ -92,7 +90,7 @@ CRAN release: 2025-01-08
 CRAN release: 2024-12-02
 
 - \[New Feature\] Added a new function
-  [`webdav_download_file()`](https://monitoramento.sepe.pe.gov.br/webdav/reference/webdav_download_file.md)
+  [`webdav_download_file()`](https://strategicprojects.github.io/webdav/reference/webdav_download_file.md)
   to download files from a WebDAV server to a local directory.
   - This function allows users to specify a file on the server and
     download it to a specified local path.

@@ -3,7 +3,8 @@
 ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/webdav)  
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/webdav)
   ![License](https://img.shields.io/badge/license-MIT-darkviolet.svg) 
-![](https://img.shields.io/badge/devel%20version-0.1.6-blue.svg)
+![Devel
+Badge](https://img.shields.io/badge/devel%20version-0.1.6-blue.svg)
 
 WebDAV (*Web Distributed Authoring and Versioning*) is an extension of
 the HTTP protocol that allows users to collaboratively edit and manage
