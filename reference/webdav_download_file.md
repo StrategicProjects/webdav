@@ -70,16 +70,16 @@ if (class(test_server) != "try-error")
     file_path = "Project.pdf",
     destination_path = tempdir(),
     verbose = TRUE)
-#> ℹ Base URL: <http://webdavserver.net/Userd5cc426>
-#> ℹ Downloading from: Project.pdf to: /tmp/RtmpCXI4bX/Project.pdf
-#> ℹ Server Path: <http://webdavserver.net/Userd5cc426/Project.pdf>
-#> ℹ Local Destination Path: /tmp/RtmpCXI4bX/Project.pdf
-#> ℹ Base URL: <http://webdavserver.net/Userd5cc426/Project.pdf>
+#> ℹ Base URL: <http://webdavserver.net/User1182681>
+#> ℹ Downloading from: Project.pdf to: /tmp/RtmpjnK4zR/Project.pdf
+#> ℹ Server Path: <http://webdavserver.net/User1182681/Project.pdf>
+#> ℹ Local Destination Path: /tmp/RtmpjnK4zR/Project.pdf
+#> ℹ Base URL: <http://webdavserver.net/User1182681/Project.pdf>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.
-#> ✔ Resource successfully downloaded from <http://webdavserver.net/Userd5cc426/Project.pdf>
-#> ✔ Resource successfully written to /tmp/RtmpCXI4bX/Project.pdf
+#> ✔ Resource successfully downloaded from <http://webdavserver.net/User1182681/Project.pdf>
+#> ✔ Resource successfully written to /tmp/RtmpjnK4zR/Project.pdf
 #> [1] TRUE
 # Visit test_server$url to view the results of the operation.
 ```
