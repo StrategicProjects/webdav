@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">webdav</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,12 +95,13 @@
 <span class="r-in"><span><span class="co"># Delete a file or directory</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">test_server</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"try-error"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">webdav_delete_resource</span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">test_server</span><span class="op">$</span><span class="va">url</span>, resource_path <span class="op">=</span> <span class="st">"Notes.txt"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attempting to delete resource at: http://webdavserver.net/Userb97a725/Notes.txt</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Base URL: http://webdavserver.net/Userb97a725/Notes.txt</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Username: Not provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request object created successfully.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No authentication added.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Resource successfully deleted at: Notes.txt</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Attempting to delete resource at:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   <span style="color: #0000BB; font-style: italic;">&lt;http://webdavserver.net/Userc775bc6/Notes.txt&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Base URL: <span style="color: #0000BB; font-style: italic;">&lt;http://webdavserver.net/Userc775bc6/Notes.txt&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Username: <span style="color: #0000BB;">"Not provided"</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Request object created successfully.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> No authentication added.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Resource successfully deleted at: <span style="color: #0000BB;">Notes.txt</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 </code></pre></div>
     </div>

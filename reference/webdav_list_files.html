@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">webdav</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,20 +119,20 @@
 <span class="r-in"><span><span class="co"># List files in a directory</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">test_server</span><span class="op">)</span> <span class="op">!=</span> <span class="st">"try-error"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">webdav_list_files</span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">test_server</span><span class="op">$</span><span class="va">url</span>, folder_path <span class="op">=</span> <span class="st">"Sales/"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Listing files in folder: Sales/</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Full URL: http://webdavserver.net/Usera62df0a/Sales</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Base URL: http://webdavserver.net/Usera62df0a/Sales</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Username: Not provided</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request object created successfully.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No authentication added.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Files listed successfully.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Listing files in folder: <span style="color: #0000BB;">Sales/</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Full URL: <span style="color: #0000BB; font-style: italic;">&lt;http://webdavserver.net/Userbcec2b9/Sales&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Base URL: <span style="color: #0000BB; font-style: italic;">&lt;http://webdavserver.net/Userbcec2b9/Sales&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Username: <span style="color: #0000BB;">"Not provided"</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Request object created successfully.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> No authentication added.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Files listed successfully.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   display_name full_path     creation_date last_modified content_length</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Australia/   http://webda… 2025-07-18T1… Fri, 18 Jul …             <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Canada/      http://webda… 2025-07-18T1… Fri, 18 Jul …             <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Europe/      http://webda… 2025-07-18T1… Fri, 18 Jul …             <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> USA/         http://webda… 2025-07-18T1… Fri, 18 Jul …             <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Australia/   http://webda… 2026-04-07T1… Tue, 07 Apr …             <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Canada/      http://webda… 2026-04-07T1… Tue, 07 Apr …             <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Europe/      http://webda… 2026-04-07T1… Tue, 07 Apr …             <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> USA/         http://webda… 2026-04-07T1… Tue, 07 Apr …             <span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: is_folder &lt;lgl&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
