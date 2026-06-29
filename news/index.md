@@ -2,6 +2,8 @@
 
 ## webdav 0.2.0
 
+CRAN release: 2026-04-07
+
 ### Breaking Changes
 
 - `check_and_load_package()` is now deprecated. All required packages
@@ -35,7 +37,7 @@
 
 ### Authors
 
-- Added Marcos Wasilew, Carlos Amorin as authors.
+- Added Marcos Wasilew, Carlos Amorim as authors.
 - Fixed Hugo Vasconcelos surname spelling.
 
 ## webdav 0.1.6

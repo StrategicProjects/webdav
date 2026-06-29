@@ -10,6 +10,7 @@ resources.
 ### 1. Creating a WebDAV Request
 
 ``` r
+
 webdav_create_request(base_url, username, password, verbose = FALSE)
 ```
 
@@ -28,6 +29,7 @@ provided username and password and returns a request object.
 **Example**:
 
 ``` r
+
 # Example usage with a public WebDAV server.
 # Visit test_server$url link to view the results of the operation.
 library(magrittr)
@@ -46,6 +48,7 @@ if (class(test_server) != "try-error")
 ### 2. Copying Files
 
 ``` r
+
 webdav_copy_file(base_url, from_path, to_path, username, password)
 ```
 
@@ -63,6 +66,7 @@ WebDAV server.
 **Example**:
 
 ``` r
+
 # Example usage with a public WebDAV server.
 # Visit test_server$url link to view the results of the operation.
 library(magrittr)
@@ -84,6 +88,7 @@ if (class(test_server) != "try-error")
 ### 3. Creating a Directory
 
 ``` r
+
 webdav_create_directory(base_url, folder_path, username, password)
 ```
 
@@ -100,6 +105,7 @@ server using the MKCOL method.
 **Example**:
 
 ``` r
+
 # Example usage with a public WebDAV server.
 # Visit test_server$url link to view the results of the operation.
 library(magrittr)
@@ -121,6 +127,7 @@ if (class(test_server) != "try-error")
 ### 4. Deleting a File or Directory
 
 ``` r
+
 webdav_delete_resource(
   base_url, 
   resource_path, 
@@ -141,6 +148,7 @@ authentication.
 **Example**:
 
 ``` r
+
 # Example usage with a public WebDAV server.
 # Visit test_server$url link to view the results of the operation.
 library(magrittr)
@@ -161,6 +169,7 @@ if (class(test_server) != "try-error")
 ### 5. Listing Files in a Directory
 
 ``` r
+
 webdav_list_files(
   base_url, 
   folder_path, 
@@ -185,6 +194,7 @@ using the PROPFIND method.
 **Example**:
 
 ``` r
+
 # Example usage with a public WebDAV server.
 # Visit test_server$url link to view the results of the operation.
 library(magrittr)
@@ -206,6 +216,7 @@ if (class(test_server) != "try-error")
 ### 6. Uploading a File
 
 ``` r
+
 webdav_upload_file(
   base_url, 
   local_path, 
@@ -233,6 +244,7 @@ This function uploads a local file to the WebDAV server.
 **Example**:
 
 ``` r
+
 # Example usage with a public WebDAV server.
 # Visit test_server$url link to view the results of the operation.
 library(magrittr)
@@ -253,6 +265,7 @@ if (class(test_server) != "try-error")
 ### 7. Download a file
 
 ``` r
+
 webdav_download_file(base_url, file_path, destination_path, username, password, verbose)
 ```
 
@@ -277,6 +290,7 @@ and optionally prints detailed logs if requested.
 **Example**:
 
 ``` r
+
 # Example usage with a public WebDAV server.
 library(magrittr)
 library(httr2)

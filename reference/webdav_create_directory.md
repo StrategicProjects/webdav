@@ -50,6 +50,7 @@ successfully.
 ## Examples
 
 ``` r
+
 # Example usage with a public WebDAV server.
 # Visit test_server$url link to view the results of the operation.
 library(httr2)
@@ -63,7 +64,7 @@ test_server <- "http://webdavserver.net/" |>
 if (class(test_server) != "try-error")
   webdav_create_directory(base_url = test_server$url, folder_path = "Test_Folder", verbose = TRUE)
 #> ℹ Folder path to create: Test_Folder
-#> ℹ Base URL: <http://webdavserver.net/Userf48b007/Test_Folder>
+#> ℹ Base URL: <http://webdavserver.net/User736f44f/Test_Folder>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.
