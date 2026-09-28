@@ -96,8 +96,8 @@ test_server <- "http://webdavserver.net/" |>
 if (class(test_server) != "try-error")
   webdav_list_files(base_url = test_server$url, folder_path = "Sales/", verbose = TRUE)
 #> ℹ Listing files in folder: Sales/
-#> ℹ Full URL: <http://webdavserver.net/User1622301/Sales>
-#> ℹ Base URL: <http://webdavserver.net/User1622301/Sales>
+#> ℹ Full URL: <http://webdavserver.net/Useree4f5fb/Sales>
+#> ℹ Base URL: <http://webdavserver.net/Useree4f5fb/Sales>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.
@@ -105,9 +105,9 @@ if (class(test_server) != "try-error")
 #> # A tibble: 4 × 6
 #>   display_name full_path     creation_date last_modified content_length
 #>   <chr>        <chr>         <chr>         <chr>                  <dbl>
-#> 1 Australia/   http://webda… 2026-06-29T1… Mon, 29 Jun …             NA
-#> 2 Canada/      http://webda… 2026-06-29T1… Mon, 29 Jun …             NA
-#> 3 Europe/      http://webda… 2026-06-29T1… Mon, 29 Jun …             NA
-#> 4 USA/         http://webda… 2026-06-29T1… Mon, 29 Jun …             NA
+#> 1 Australia/   http://webda… 2026-09-28T2… Mon, 28 Sep …             NA
+#> 2 Canada/      http://webda… 2026-09-28T2… Mon, 28 Sep …             NA
+#> 3 Europe/      http://webda… 2026-09-28T2… Mon, 28 Sep …             NA
+#> 4 USA/         http://webda… 2026-09-28T2… Mon, 28 Sep …             NA
 #> # ℹ 1 more variable: is_folder <lgl>
 ```

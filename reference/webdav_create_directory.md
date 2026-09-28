@@ -64,7 +64,7 @@ test_server <- "http://webdavserver.net/" |>
 if (class(test_server) != "try-error")
   webdav_create_directory(base_url = test_server$url, folder_path = "Test_Folder", verbose = TRUE)
 #> ℹ Folder path to create: Test_Folder
-#> ℹ Base URL: <http://webdavserver.net/User736f44f/Test_Folder>
+#> ℹ Base URL: <http://webdavserver.net/User004d8fe/Test_Folder>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.
