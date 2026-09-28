@@ -22,7 +22,7 @@
 
 ## Authors
 
-- Added Marcos Wasilew, Carlos Amorim as authors.
+- Added Marcos Wasiliew, Carlos Amorim as authors.
 - Fixed Hugo Vasconcelos surname spelling.
 
 # webdav 0.1.6

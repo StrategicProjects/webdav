@@ -5,10 +5,13 @@ Version: 0.2.0
 Date: 2026-04-07
 Authors@R: c(
     person("Andre", "Leite", email = "leite@castlab.org", role = c("aut", "cre")),
-    person("Marcos", "Wasilew", email = "marcos.wasilew@gmail.com", role = "aut"),
+    person("Marcos", "Wasiliew", email = "marcos.wasiliew@gmail.com", role = "aut",
+           comment = c(ORCID = "0009-0004-4694-3159")),
     person("Hugo", "Vasconcelos", email = "hugo.vasconcelos@ufpe.br", role = "aut"),
     person("Carlos", "Amorim", email = "carlos.agaf@ufpe.br", role = "aut"),
-    person("Diogo", "Bezerra", email = "diogo.bezerra@ufpe.br", role = "aut"))
+    person("Diogo", "Bezerra", email = "diogo.bezerra@ufpe.br", role = "aut"),
+    person("Júlia", "Nascimento Barreto", email = "juliabarreto@gd.seplag.pe.gov.br", role = "aut",
+           comment = c(ORCID = "0009-0004-2851-7770")))
 Description: An easy-to-use interface for interacting with 'WebDAV' servers,
     including 'OwnCloud'. It simplifies the use of 'WebDAV' methods such as COPY, MOVE, DELETE and others. 
     With built-in authentication and request handling, it allows for easy
@@ -30,7 +33,6 @@ VignetteBuilder: knitr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.3
 Suggests:
     testthat (>= 3.0.0),
     roxygen2,
@@ -39,3 +41,4 @@ Suggests:
     rmarkdown,
 URL: <https://github.com/StrategicProjects/webdav>, <https://strategicprojects.github.io/webdav/>
 Config/Needs/website: tidyverse/tidytemplate
+Config/roxygen2/version: 8.0.0
