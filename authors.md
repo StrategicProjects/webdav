@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Andre Leite**. Author, maintainer.
+- **André Leite**. Author, maintainer.
 
 - **Marcos Wasiliew**. Author. [](https://orcid.org/0009-0004-4694-3159)
 
@@ -24,7 +24,7 @@ Barreto J (2026). *webdav: A Simple Interface for Interacting with
 
     @Manual{,
       title = {webdav: A Simple Interface for Interacting with 'WebDAV' Servers},
-      author = {Andre Leite and Marcos Wasiliew and Hugo Vasconcelos and Carlos Amorim and Diogo Bezerra and Júlia {Nascimento Barreto}},
+      author = {André Leite and Marcos Wasiliew and Hugo Vasconcelos and Carlos Amorim and Diogo Bezerra and Júlia {Nascimento Barreto}},
       year = {2026},
       note = {R package version 0.2.0},
       url = {https://github.com/StrategicProjects/webdav},
