@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Using Environment Variables for Security in the webdav Package">
 </head>
@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">webdav</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,9 +65,9 @@
                         <h4 data-toc-skip class="author">André
 Leite</h4>
             
-            <h4 data-toc-skip class="date">2026-04-07</h4>
+            <h4 data-toc-skip class="date">2026-10-30</h4>
       
-
+      <small class="dont-index">Source: <a href="https://github.com/StrategicProjects/webdav/blob/HEAD/vignettes/env_variables.Rmd" class="external-link"><code>vignettes/env_variables.Rmd</code></a></small>
       <div class="d-none name"><code>env_variables.Rmd</code></div>
     </div>
 
@@ -75,6 +75,7 @@ Leite</h4>
     
 <p>Why use environment variables? Because <em>hardcoding passwords</em>
 is like leaving your keys under the welcome mat!</p>
+<pre><code><span><span class="co">## Warning: package 'fortunes' was built under R version 4.6.1</span></span></code></pre>
 <blockquote>
 <p>If the answer is parse() you should usually rethink the question. –
 Thomas Lumley R-help (February 2005)</p>
@@ -99,16 +100,16 @@ your password to GitHub like you’re tossing it into the wind!</p>
 <p>Open a terminal and find that trusty shell profile (e.g.,
 <code>.bash_profile</code>, <code>.zshrc</code>, or
 <code>.bashrc</code>):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">nano</span> ~/.bash_profile  <span class="co"># or nano ~/.zshrc for zsh users</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">nano</span> ~/.bash_profile  <span class="co"># or nano ~/.zshrc for zsh users</span></span></code></pre></div>
 </li>
 <li>
 <p>Stick this magic incantation at the bottom:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">export</span> <span class="va">OWNCLOUD_USERNAME</span><span class="op">=</span><span class="st">"your_username"</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="bu">export</span> <span class="va">OWNCLOUD_PASSWORD</span><span class="op">=</span><span class="st">"your_password"</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">export</span> <span class="va">OWNCLOUD_USERNAME</span><span class="op">=</span><span class="st">"your_username"</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="bu">export</span> <span class="va">OWNCLOUD_PASSWORD</span><span class="op">=</span><span class="st">"your_password"</span></span></code></pre></div>
 </li>
 <li>
 <p>Save and reload with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">source</span> ~/.bash_profile  <span class="co"># or source ~/.zshrc</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">source</span> ~/.bash_profile  <span class="co"># or source ~/.zshrc</span></span></code></pre></div>
 </li>
 </ol>
 <p>Boom! Credentials are safe and sound in the shadows of your terminal.
@@ -146,8 +147,8 @@ ready to protect your credentials.</p>
 <li>
 <p>Create a <code>.Renviron</code> file in your project
 directory:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="va">OWNCLOUD_USERNAME</span><span class="op">=</span>your_username</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="va">OWNCLOUD_PASSWORD</span><span class="op">=</span>your_password</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="va">OWNCLOUD_USERNAME</span><span class="op">=</span>your_username</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="va">OWNCLOUD_PASSWORD</span><span class="op">=</span>your_password</span></code></pre></div>
 </li>
 <li><p>Done! These variables will pop up like magic whenever you use R
 in that project.</p></li>
@@ -163,7 +164,7 @@ in that project.</p></li>
 <p>Here’s how you avoid the “hardcoding password trap.” Instead of
 typing <code>username = "secret"</code> like it’s your first day with R,
 grab your credentials with <code><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv()</a></code>:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Keep those secrets safe</span></span>
 <span><span class="va">username</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"OWNCLOUD_USERNAME"</span><span class="op">)</span></span>
 <span><span class="va">password</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"OWNCLOUD_PASSWORD"</span><span class="op">)</span></span>
@@ -185,8 +186,8 @@ an invisible cloak around your credentials.</p>
 <p>Don’t be that person who commits their <code>.Renviron</code> file to
 GitHub. Add <code>.Renviron</code> to your <code>.gitignore</code> file
 and keep it safe:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># .gitignore</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="ex">.Renviron</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># .gitignore</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">.Renviron</span></span></code></pre></div>
 <hr>
 <p><strong>R Fortune</strong> references used:</p>
 <ul>

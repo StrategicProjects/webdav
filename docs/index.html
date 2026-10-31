@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="A Simple Interface for Interacting with WebDAV Servers">
 <meta name="description" content="An easy-to-use interface for interacting with WebDAV servers, including OwnCloud. It simplifies the use of WebDAV methods such as COPY, MOVE, DELETE and others. With built-in authentication and request handling, it allows for easy management of files and directories over the WebDAV protocol.">
@@ -33,7 +33,7 @@
 
     <a class="navbar-brand me-2" href="index.html">webdav</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
 </div>
 <!-- (https://cloud.r-project.org/package=webdav) -->
 <!-- badges: start -->
-<p><img src="https://www.r-pkg.org/badges/version/webdav" alt="CRAN_Status_Badge">   <img src="https://cranlogs.r-pkg.org/badges/grand-total/webdav" alt="CRAN Downloads">   <img src="https://img.shields.io/badge/license-MIT-darkviolet.svg" alt="License">  <img src="https://img.shields.io/badge/devel%20version-0.1.6-blue.svg" alt="Devel Badge"><!-- badges: end --></p>
+<p><img src="https://www.r-pkg.org/badges/version/webdav" alt="CRAN_Status_Badge">   <img src="https://cranlogs.r-pkg.org/badges/grand-total/webdav" alt="CRAN Downloads">   <img src="https://img.shields.io/badge/license-MIT-darkviolet.svg" alt="License">  <img src="https://img.shields.io/badge/devel%20version-0.3.0-blue.svg" alt="Devel Badge"><!-- badges: end --></p>
 <!-- badger::badge_devel("StrategicProjects/webdav", "blue") -->
 <p>WebDAV (<em>Web Distributed Authoring and Versioning</em>) is an extension of the HTTP protocol that allows users to collaboratively edit and manage files stored on remote web servers. It provides a framework for users to create, delete, copy, move, and download files.</p>
 <div class="section level3">
@@ -89,11 +89,105 @@
 <strong>Microsoft SharePoint</strong>: Uses WebDAV for file management over the web.</li>
 </ol>
 </div>
+<div class="section level3">
+<h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h3>
+<p>Install the released version from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"webdav"</span><span class="op">)</span></span></code></pre></div>
+<p>Or the development version from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"StrategicProjects/webdav"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h3>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Function</th>
+<th>WebDAV method</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code><a href="reference/webdav_create_request.html">webdav_create_request()</a></code></td>
+<td>—</td>
+<td>Build an authenticated <code>httr2</code> request for the server</td>
+</tr>
+<tr>
+<td><code><a href="reference/webdav_list_files.html">webdav_list_files()</a></code></td>
+<td>PROPFIND</td>
+<td>List files and folders as a tibble</td>
+</tr>
+<tr>
+<td><code><a href="reference/webdav_upload_file.html">webdav_upload_file()</a></code></td>
+<td>PUT</td>
+<td>Upload a local file (streamed from disk)</td>
+</tr>
+<tr>
+<td><code><a href="reference/webdav_download_file.html">webdav_download_file()</a></code></td>
+<td>GET</td>
+<td>Download a file (streamed to disk)</td>
+</tr>
+<tr>
+<td><code><a href="reference/webdav_create_directory.html">webdav_create_directory()</a></code></td>
+<td>MKCOL</td>
+<td>Create a collection (directory)</td>
+</tr>
+<tr>
+<td><code><a href="reference/webdav_copy_file.html">webdav_copy_file()</a></code></td>
+<td>COPY</td>
+<td>Copy a resource</td>
+</tr>
+<tr>
+<td><code><a href="reference/webdav_move_file.html">webdav_move_file()</a></code></td>
+<td>MOVE</td>
+<td>Move or rename a resource</td>
+</tr>
+<tr>
+<td><code><a href="reference/webdav_delete_resource.html">webdav_delete_resource()</a></code></td>
+<td>DELETE</td>
+<td>Delete a file or directory</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
+</h3>
+<p>Credentials default to the <code>WEBDAV_USERNAME</code> and <code>WEBDAV_PASSWORD</code> environment variables (see <code><a href="articles/env_variables.html">vignette("env_variables")</a></code>):</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/StrategicProjects/webdav" class="external-link">webdav</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://cloud.example.com/remote.php/dav/files/user"</span></span>
+<span></span>
+<span><span class="co"># List what's there</span></span>
+<span><span class="fu"><a href="reference/webdav_list_files.html">webdav_list_files</a></span><span class="op">(</span><span class="va">base_url</span>, folder_path <span class="op">=</span> <span class="st">"Documents"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Upload, rename, download, clean up</span></span>
+<span><span class="fu"><a href="reference/webdav_upload_file.html">webdav_upload_file</a></span><span class="op">(</span><span class="va">base_url</span>, local_path <span class="op">=</span> <span class="st">"report.pdf"</span>, server_path <span class="op">=</span> <span class="st">"Documents"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/webdav_move_file.html">webdav_move_file</a></span><span class="op">(</span><span class="va">base_url</span>,</span>
+<span>                 from_path <span class="op">=</span> <span class="st">"Documents/report.pdf"</span>,</span>
+<span>                 to_path <span class="op">=</span> <span class="st">"Documents/report-2026.pdf"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/webdav_download_file.html">webdav_download_file</a></span><span class="op">(</span><span class="va">base_url</span>,</span>
+<span>                     file_path <span class="op">=</span> <span class="st">"Documents/report-2026.pdf"</span>,</span>
+<span>                     destination_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/webdav_delete_resource.html">webdav_delete_resource</a></span><span class="op">(</span><span class="va">base_url</span>, resource_path <span class="op">=</span> <span class="st">"Documents/report-2026.pdf"</span><span class="op">)</span></span></code></pre></div>
+<p>Invalid arguments raise an error; network or server failures issue a warning and return <code>FALSE</code> (<code>NULL</code> for <code><a href="reference/webdav_list_files.html">webdav_list_files()</a></code>), so scripts can test the return value instead of wrapping calls in <code><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch()</a></code>.</p>
+</div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=webdav" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/StrategicProjects/webdav/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/StrategicProjects/webdav/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -116,11 +210,12 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Andre Leite <br><small class="roles"> Author, maintainer </small>   </li>
-<li>Marcos Wasilew <br><small class="roles"> Author </small>   </li>
-<li>Hugo Vasconcelos <br><small class="roles"> Author </small>   </li>
-<li>Carlos Amorin <br><small class="roles"> Author </small>   </li>
-<li>Diogo Bezerra <br><small class="roles"> Author </small>   </li>
+<li>André Leite <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4718-9766" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Marcos Wasiliew <br><small class="roles"> Author </small> <a href="https://orcid.org/0009-0004-4694-3159" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Hugo Vasconcelos <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6249-0920" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Carlos Amorim <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6315-8305" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Diogo Bezerra <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1216-8674" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Júlia Nascimento Barreto <br><small class="roles"> Author </small> <a href="https://orcid.org/0009-0004-2851-7770" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 

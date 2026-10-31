@@ -3,6 +3,8 @@
 Why use environment variables? Because *hardcoding passwords* is like
 leaving your keys under the welcome mat!
 
+    ## Warning: package 'fortunes' was built under R version 4.6.1
+
 > If the answer is parse() you should usually rethink the question. –
 > Thomas Lumley R-help (February 2005)
 
@@ -84,21 +86,19 @@ Here’s how you avoid the “hardcoding password trap.” Instead of typing
 credentials with
 [`Sys.getenv()`](https://rdrr.io/r/base/Sys.getenv.html):
 
-``` r
-
-# Keep those secrets safe
-username <- Sys.getenv("OWNCLOUD_USERNAME")
-password <- Sys.getenv("OWNCLOUD_PASSWORD")
-
-# Use them securely in your webdav function calls
-webdav_upload_file(
-  base_url = "https://drive.expresso.pe.gov.br",
-  file_path = "local_file.txt",
-  server_path = "/Shared/der/app_painel/data/",
-  username = username,
-  password = password
-)
-```
+\
+`# Keep those secrets safe`\
+`username`` ``<-`` `[`Sys.getenv`](https://rdrr.io/r/base/Sys.getenv.html)`(``"OWNCLOUD_USERNAME"``)`\
+`password`` ``<-`` `[`Sys.getenv`](https://rdrr.io/r/base/Sys.getenv.html)`(``"OWNCLOUD_PASSWORD"``)`\
+\
+`# Use them securely in your webdav function calls`\
+[`webdav_upload_file`](https://strategicprojects.github.io/webdav/reference/webdav_upload_file.md)`(`\
+`  base_url ``=`` ``"https://drive.expresso.pe.gov.br"``,`\
+`  file_path ``=`` ``"local_file.txt"``,`\
+`  server_path ``=`` ``"/Shared/der/app_painel/data/"``,`\
+`  username ``=`` ``username``,`\
+`  password ``=`` ``password`\
+`)`
 
 See? No passwords hanging out in your code! It’s like you’re wearing an
 invisible cloak around your credentials.

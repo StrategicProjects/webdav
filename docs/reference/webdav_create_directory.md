@@ -44,8 +44,8 @@ webdav_create_directory(
 
 ## Value
 
-Logical value indicating whether the collection was created
-successfully.
+\`TRUE\` if the collection was created successfully, \`FALSE\` (with a
+warning) otherwise. Invalid arguments raise an error.
 
 ## Examples
 
@@ -61,10 +61,10 @@ test_server <- "http://webdavserver.net/" |>
   try(silent = TRUE)
 
 # Create a directory on the WebDAV server
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_create_directory(base_url = test_server$url, folder_path = "Test_Folder", verbose = TRUE)
 #> ℹ Folder path to create: Test_Folder
-#> ℹ Base URL: <http://webdavserver.net/User9311491/Test_Folder>
+#> ℹ Base URL: <http://webdavserver.net/User7d99544/Test_Folder>
 #> ℹ Username: "andreleite"
 #> ✔ Request object created successfully.
 #> ✔ Basic authentication added.

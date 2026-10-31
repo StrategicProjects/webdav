@@ -44,8 +44,8 @@ webdav_delete_resource(
 
 ## Value
 
-Logical value indicating whether the file or directory was deleted
-successfully.
+\`TRUE\` if the file or directory was deleted successfully, \`FALSE\`
+(with a warning) otherwise. Invalid arguments raise an error.
 
 ## Examples
 
@@ -60,11 +60,11 @@ test_server <- "http://webdavserver.net/" |>
   try(silent = TRUE)
 
 # Delete a file or directory
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_delete_resource(base_url = test_server$url, resource_path = "Notes.txt", verbose = TRUE)
 #> ℹ Attempting to delete resource at:
-#>   <http://webdavserver.net/User589d796/Notes.txt>
-#> ℹ Base URL: <http://webdavserver.net/User589d796/Notes.txt>
+#>   <http://webdavserver.net/User83867ad/Notes.txt>
+#> ℹ Base URL: <http://webdavserver.net/User83867ad/Notes.txt>
 #> ℹ Username: "andreleite"
 #> ✔ Request object created successfully.
 #> ✔ Basic authentication added.

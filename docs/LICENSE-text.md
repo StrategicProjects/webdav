@@ -1,4 +1,4 @@
 # License
 
-    YEAR: 2025
-    COPYRIGHT HOLDER: webdav authors
+YEAR: 2025\
+COPYRIGHT HOLDER: webdav authors\

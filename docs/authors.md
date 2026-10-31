@@ -2,26 +2,35 @@
 
 ## Authors
 
-- **Andre Leite**. Author, maintainer.
+- **André Leite**. Author, maintainer.
+  [](https://orcid.org/0000-0002-4718-9766)
 
-- **Marcos Wasilew**. Author.
+- **Marcos Wasiliew**. Author. [](https://orcid.org/0009-0004-4694-3159)
 
 - **Hugo Vasconcelos**. Author.
+  [](https://orcid.org/0000-0001-6249-0920)
 
-- **Carlos Amorin**. Author.
+- **Carlos Amorim**. Author. [](https://orcid.org/0000-0001-6315-8305)
 
-- **Diogo Bezerra**. Author.
+- **Diogo Bezerra**. Author. [](https://orcid.org/0000-0002-1216-8674)
+
+- **Júlia Nascimento Barreto**. Author.
+  [](https://orcid.org/0009-0004-2851-7770)
 
 ## Citation
 
-Leite A, Wasilew M, Vasconcelos H, Amorin C, Bezerra D (2026). *webdav:
-A Simple Interface for Interacting with 'WebDAV' Servers*. R package
-version 0.2.0, <https://github.com/StrategicProjects/webdav>.
+Source:
+[`DESCRIPTION`](https://github.com/StrategicProjects/webdav/blob/HEAD/DESCRIPTION)
 
-    @Manual{,
-      title = {webdav: A Simple Interface for Interacting with 'WebDAV' Servers},
-      author = {Andre Leite and Marcos Wasilew and Hugo Vasconcelos and Carlos Amorin and Diogo Bezerra},
-      year = {2026},
-      note = {R package version 0.2.0},
-      url = {https://github.com/StrategicProjects/webdav},
-    }
+Leite A, Wasiliew M, Vasconcelos H, Amorim C, Bezerra D, Nascimento
+Barreto J (2026). *webdav: A Simple Interface for Interacting with
+'WebDAV' Servers*. R package version 0.3.0,
+<https://github.com/StrategicProjects/webdav>.
+
+@Manual{,\
+  title = {webdav: A Simple Interface for Interacting with 'WebDAV' Servers},\
+  author = {André Leite and Marcos Wasiliew and Hugo Vasconcelos and Carlos Amorim and Diogo Bezerra and Júlia {Nascimento Barreto}},\
+  year = {2026},\
+  note = {R package version 0.3.0},\
+  url = {https://github.com/StrategicProjects/webdav},\
+}

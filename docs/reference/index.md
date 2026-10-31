@@ -16,5 +16,7 @@
   : Download a file from the WebDAV server
 - [`webdav_list_files()`](https://strategicprojects.github.io/webdav/reference/webdav_list_files.md)
   : List files from a specific folder on WebDAV server
+- [`webdav_move_file()`](https://strategicprojects.github.io/webdav/reference/webdav_move_file.md)
+  : Move or rename a resource on the WebDAV server
 - [`webdav_upload_file()`](https://strategicprojects.github.io/webdav/reference/webdav_upload_file.md)
   : Upload a file to the WebDAV server

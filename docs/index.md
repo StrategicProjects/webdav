@@ -4,7 +4,7 @@
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/webdav)
   ![License](https://img.shields.io/badge/license-MIT-darkviolet.svg) 
 ![Devel
-Badge](https://img.shields.io/badge/devel%20version-0.1.6-blue.svg)
+Badge](https://img.shields.io/badge/devel%20version-0.3.0-blue.svg)
 
 WebDAV (*Web Distributed Authoring and Versioning*) is an extension of
 the HTTP protocol that allows users to collaboratively edit and manage
@@ -23,3 +23,59 @@ Some platforms that implement WebDAV are:
     Apache web server.
 4.  **Microsoft SharePoint**: Uses WebDAV for file management over the
     web.
+
+### Installation
+
+Install the released version from CRAN:
+
+\
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"webdav"``)`
+
+Or the development version from GitHub:
+
+\
+`# install.packages("remotes")`\
+`remotes``::`[`install_github`](https://remotes.r-lib.org/reference/install_github.html)`(``"StrategicProjects/webdav"``)`
+
+### Functions
+
+| Function | WebDAV method | Description |
+|----|----|----|
+| [`webdav_create_request()`](https://strategicprojects.github.io/webdav/reference/webdav_create_request.md) | — | Build an authenticated `httr2` request for the server |
+| [`webdav_list_files()`](https://strategicprojects.github.io/webdav/reference/webdav_list_files.md) | PROPFIND | List files and folders as a tibble |
+| [`webdav_upload_file()`](https://strategicprojects.github.io/webdav/reference/webdav_upload_file.md) | PUT | Upload a local file (streamed from disk) |
+| [`webdav_download_file()`](https://strategicprojects.github.io/webdav/reference/webdav_download_file.md) | GET | Download a file (streamed to disk) |
+| [`webdav_create_directory()`](https://strategicprojects.github.io/webdav/reference/webdav_create_directory.md) | MKCOL | Create a collection (directory) |
+| [`webdav_copy_file()`](https://strategicprojects.github.io/webdav/reference/webdav_copy_file.md) | COPY | Copy a resource |
+| [`webdav_move_file()`](https://strategicprojects.github.io/webdav/reference/webdav_move_file.md) | MOVE | Move or rename a resource |
+| [`webdav_delete_resource()`](https://strategicprojects.github.io/webdav/reference/webdav_delete_resource.md) | DELETE | Delete a file or directory |
+
+### Quick start
+
+Credentials default to the `WEBDAV_USERNAME` and `WEBDAV_PASSWORD`
+environment variables (see
+[`vignette("env_variables")`](https://strategicprojects.github.io/webdav/articles/env_variables.md)):
+
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`webdav`](https://github.com/StrategicProjects/webdav)`)`\
+\
+`base_url`` ``<-`` ``"https://cloud.example.com/remote.php/dav/files/user"`\
+\
+`# List what's there`\
+[`webdav_list_files`](https://strategicprojects.github.io/webdav/reference/webdav_list_files.md)`(``base_url``, folder_path ``=`` ``"Documents"``)`\
+\
+`# Upload, rename, download, clean up`\
+[`webdav_upload_file`](https://strategicprojects.github.io/webdav/reference/webdav_upload_file.md)`(``base_url``, local_path ``=`` ``"report.pdf"``, server_path ``=`` ``"Documents"``)`\
+[`webdav_move_file`](https://strategicprojects.github.io/webdav/reference/webdav_move_file.md)`(``base_url``,`\
+`                 from_path ``=`` ``"Documents/report.pdf"``,`\
+`                 to_path ``=`` ``"Documents/report-2026.pdf"``)`\
+[`webdav_download_file`](https://strategicprojects.github.io/webdav/reference/webdav_download_file.md)`(``base_url``,`\
+`                     file_path ``=`` ``"Documents/report-2026.pdf"``,`\
+`                     destination_path ``=`` `[`tempdir`](https://rdrr.io/r/base/tempfile.html)`(``)``)`\
+[`webdav_delete_resource`](https://strategicprojects.github.io/webdav/reference/webdav_delete_resource.md)`(``base_url``, resource_path ``=`` ``"Documents/report-2026.pdf"``)`
+
+Invalid arguments raise an error; network or server failures issue a
+warning and return `FALSE` (`NULL` for
+[`webdav_list_files()`](https://strategicprojects.github.io/webdav/reference/webdav_list_files.md)),
+so scripts can test the return value instead of wrapping calls in
+[`tryCatch()`](https://rdrr.io/r/base/conditions.html).
