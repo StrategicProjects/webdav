@@ -1,8 +1,8 @@
 Package: webdav
 Type: Package
 Title: A Simple Interface for Interacting with 'WebDAV' Servers
-Version: 0.2.0
-Date: 2026-04-07
+Version: 0.3.0
+Date: 2026-10-30
 Authors@R: c(
     person("André", "Leite", email = "leite@castlab.org", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4718-9766")),
@@ -36,13 +36,15 @@ Imports:
 VignetteBuilder: knitr
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Suggests:
     testthat (>= 3.0.0),
     roxygen2,
     knitr,
     fortunes,
     rmarkdown,
-URL: <https://github.com/StrategicProjects/webdav>, <https://strategicprojects.github.io/webdav/>
+    withr
+URL: https://github.com/StrategicProjects/webdav, https://strategicprojects.github.io/webdav/
+BugReports: https://github.com/StrategicProjects/webdav/issues
 Config/Needs/website: tidyverse/tidytemplate
+Config/testthat/edition: 3
 Config/roxygen2/version: 8.0.0

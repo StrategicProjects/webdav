@@ -11,3 +11,5 @@
 ^doc$
 ^Meta$
 ^LICENSE\.md$
+^README\.html$
+^CLAUDE\.md$
