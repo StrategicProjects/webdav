@@ -55,7 +55,8 @@ webdav_upload_file(
 
 ## Value
 
-Logical value indicating whether the file was uploaded successfully.
+\`TRUE\` if the file was uploaded successfully, \`FALSE\` (with a
+warning) otherwise. Invalid arguments raise an error.
 
 ## Examples
 
@@ -72,16 +73,16 @@ test_server <- "http://webdavserver.net/" |>
 # Upload a file
 file_test <- tempfile(pattern = "teste_", fileext = ".txt")
 cat("Text file content", file = file_test)
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_upload_file(base_url = test_server$url, local_path = file_test, verbose = TRUE)
-#> ℹ Uploading file: /tmp/Rtmp8khloC/teste_188a7184d5f0.txt
+#> ℹ Uploading file: /tmp/Rtmp7eY5Rg/teste_19f63445cfac.txt
 #> ℹ Target URL:
-#>   <http://webdavserver.net/User2b8b4ac/teste_188a7184d5f0.txt>
+#>   <http://webdavserver.net/Userdb53c29/teste_19f63445cfac.txt>
 #> ℹ Base URL:
-#>   <http://webdavserver.net/User2b8b4ac/teste_188a7184d5f0.txt>
+#>   <http://webdavserver.net/Userdb53c29/teste_19f63445cfac.txt>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.
-#> ✔ File successfully uploaded to: 
+#> ✔ File successfully uploaded to: root
 #> [1] TRUE
 ```

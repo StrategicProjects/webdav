@@ -41,7 +41,7 @@ test_server <- "https://www.webdavserver.com/" %>%
   try(silent = TRUE)
 
 # Create a request
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   req <- webdav_create_request(base_url = test_server$url, verbose = TRUE)
 ```
 
@@ -49,7 +49,7 @@ if (class(test_server) != "try-error")
 
 ``` r
 
-webdav_copy_file(base_url, from_path, to_path, username, password)
+webdav_copy_file(base_url, from_path, to_path, username, password, overwrite = TRUE)
 ```
 
 This function copies a file or directory from one path to another on a
@@ -62,6 +62,8 @@ WebDAV server.
 3.  `to_path`: The destination path where the file will be copied.
 4.  `username`: Username for authentication.
 5.  `password`: Password for authentication.
+6.  `overwrite`: If `TRUE` (the default), an existing resource at
+    `to_path` is overwritten.
 
 **Example**:
 
@@ -78,14 +80,57 @@ test_server <- "https://www.webdavserver.com/" %>%
   try(silent = TRUE)
 
 # Copy a file from one path to another
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_copy_file(base_url = test_server$url,
     from_path = "Project.pdf",
     to_path = "New_Project.pdf",
     verbose = TRUE)
 ```
 
-### 3. Creating a Directory
+### 3. Moving or Renaming Files
+
+``` r
+
+webdav_move_file(base_url, from_path, to_path, username, password, overwrite = TRUE)
+```
+
+This function moves (or renames) a file or directory on the WebDAV
+server using the MOVE method. Moving within the same folder renames the
+resource.
+
+**Parameters**:
+
+1.  `base_url`: Base URL of the WebDAV server.
+2.  `from_path`: The source file path to move.
+3.  `to_path`: The destination path of the resource.
+4.  `username`: Username for authentication.
+5.  `password`: Password for authentication.
+6.  `overwrite`: If `TRUE` (the default), an existing resource at
+    `to_path` is overwritten.
+
+**Example**:
+
+``` r
+
+# Example usage with a public WebDAV server.
+# Visit test_server$url link to view the results of the operation.
+library(magrittr)
+library(httr2)
+test_server <- "https://www.webdavserver.com/" %>%
+  request() %>%
+  req_retry(max_tries = 3, max_seconds = 4, backoff =  ~ 1) %>%
+  req_perform() %>%
+  try(silent = TRUE)
+
+# Rename a file on the WebDAV server
+if (!inherits(test_server, "try-error"))
+  webdav_move_file(base_url = test_server$url,
+    from_path = "Notes.txt",
+    to_path = "Notes-renamed.txt",
+    verbose = TRUE)
+```
+
+### 4. Creating a Directory
 
 ``` r
 
@@ -117,14 +162,14 @@ test_server <- "https://www.webdavserver.com/" %>%
   try(silent = TRUE)
 
 # Create a directory on the WebDAV server
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_create_directory(
     base_url = test_server$url, 
     folder_path = "Test_Folder", 
     verbose = TRUE)
 ```
 
-### 4. Deleting a File or Directory
+### 5. Deleting a File or Directory
 
 ``` r
 
@@ -160,13 +205,13 @@ test_server <- "https://www.webdavserver.com/" %>%
   try(silent = TRUE)
 
 # Delete a file or directory
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_delete_resource(base_url = test_server$url, 
   resource_path = "Notes.txt",
   verbose = TRUE)
 ```
 
-### 5. Listing Files in a Directory
+### 6. Listing Files in a Directory
 
 ``` r
 
@@ -206,14 +251,14 @@ test_server <- "https://www.webdavserver.com/" %>%
   try(silent = TRUE)
 
 # List files in a directory
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_list_files(
     base_url = test_server$url, 
     folder_path = "Sales/", 
     verbose = TRUE)
 ```
 
-### 6. Uploading a File
+### 7. Uploading a File
 
 ``` r
 
@@ -258,11 +303,11 @@ test_server <- "https://www.webdavserver.com/" %>%
 # Upload a file
 file_test <- tempfile(pattern = "teste_", fileext = ".txt")
 cat("Text file content", file = file_test)
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_upload_file(base_url = test_server$url, local_path = file_test, verbose = TRUE)
 ```
 
-### 7. Download a file
+### 8. Download a file
 
 ``` r
 
@@ -300,7 +345,7 @@ test_server <- "https://www.webdavserver.com/" %>%
   req_perform()
 
 # Download a file from the WebDAV server
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_download_file(base_url = test_server$url,
     file_path = "Project.pdf",
     destination_path = tempdir(),

@@ -51,7 +51,8 @@ webdav_download_file(
 
 ## Value
 
-Logical value indicating whether the file was downloaded successfully.
+\`TRUE\` if the file was downloaded successfully, \`FALSE\` (with a
+warning) otherwise. Invalid arguments raise an error.
 
 ## Examples
 
@@ -65,21 +66,21 @@ test_server <- "http://webdavserver.net/" |>
   try(silent = TRUE)
 
 # Download a file from the WebDAV server
-if (class(test_server) != "try-error")
+if (!inherits(test_server, "try-error"))
   webdav_download_file(base_url = test_server$url,
     file_path = "Project.pdf",
     destination_path = tempdir(),
     verbose = TRUE)
-#> ℹ Base URL: <http://webdavserver.net/User5fffcd2>
-#> ℹ Downloading from: Project.pdf to: /tmp/Rtmp8khloC/Project.pdf
-#> ℹ Server Path: <http://webdavserver.net/User5fffcd2/Project.pdf>
-#> ℹ Local Destination Path: /tmp/Rtmp8khloC/Project.pdf
-#> ℹ Base URL: <http://webdavserver.net/User5fffcd2/Project.pdf>
+#> ℹ Base URL: <http://webdavserver.net/User90cf791>
+#> ℹ Downloading from: Project.pdf to: /tmp/Rtmp7eY5Rg/Project.pdf
+#> ℹ Server Path: <http://webdavserver.net/User90cf791/Project.pdf>
+#> ℹ Local Destination Path: /tmp/Rtmp7eY5Rg/Project.pdf
+#> ℹ Base URL: <http://webdavserver.net/User90cf791/Project.pdf>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.
-#> ✔ Resource successfully downloaded from <http://webdavserver.net/User5fffcd2/Project.pdf>
-#> ✔ Resource successfully written to /tmp/Rtmp8khloC/Project.pdf
+#> ✔ Resource successfully downloaded from <http://webdavserver.net/User90cf791/Project.pdf>
+#> ✔ Resource successfully written to /tmp/Rtmp7eY5Rg/Project.pdf
 #> [1] TRUE
 # Visit test_server$url to view the results of the operation.
 ```
