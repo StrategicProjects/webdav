@@ -63,8 +63,8 @@ test_server <- "http://webdavserver.net/" |>
 if (!inherits(test_server, "try-error"))
   webdav_delete_resource(base_url = test_server$url, resource_path = "Notes.txt", verbose = TRUE)
 #> ℹ Attempting to delete resource at:
-#>   <http://webdavserver.net/Userf058fe7/Notes.txt>
-#> ℹ Base URL: <http://webdavserver.net/Userf058fe7/Notes.txt>
+#>   <http://webdavserver.net/User70a172a/Notes.txt>
+#> ℹ Base URL: <http://webdavserver.net/User70a172a/Notes.txt>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.

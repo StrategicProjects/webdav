@@ -96,8 +96,8 @@ test_server <- "http://webdavserver.net/" |>
 if (!inherits(test_server, "try-error"))
   webdav_list_files(base_url = test_server$url, folder_path = "Sales/", verbose = TRUE)
 #> ℹ Listing files in folder: Sales/
-#> ℹ Full URL: <http://webdavserver.net/Userc7dca14/Sales>
-#> ℹ Base URL: <http://webdavserver.net/Userc7dca14/Sales>
+#> ℹ Full URL: <http://webdavserver.net/Usera2e46f0/Sales>
+#> ℹ Base URL: <http://webdavserver.net/Usera2e46f0/Sales>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.

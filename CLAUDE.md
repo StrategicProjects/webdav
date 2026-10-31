@@ -16,6 +16,19 @@ Interface WebDAV sobre httr2. Repo: github.com/StrategicProjects/webdav
 - Autores: lista idêntica à do `../alepe` (6 pessoas, mesmos papéis e
   ORCIDs) — conferido em 2026-10-30.
 
+### Pendências ao retomar
+
+- Confirmar que a 0.3.0 apareceu no CRAN (página do pacote ou
+  [`available.packages()`](https://rdrr.io/r/utils/available.packages.html))
+  e tratar qualquer e-mail de follow-up do CRAN.
+- `.DS_Store` está versionado mas no `.gitignore`: tirar do índice com
+  `git rm --cached .DS_Store` quando conveniente (ficou fora dos commits
+  da 0.3.0).
+- `webdav_0.3.0.tar.gz` e `webdav.Rcheck/` sobraram na raiz (ignorados
+  pelo git); podem ser apagados.
+- Próxima versão: bumpar `DESCRIPTION` para `0.3.0.9000` e abrir a seção
+  `# webdav (development version)` no NEWS.md.
+
 ## Convenções do pacote (adotadas na 0.3.0)
 
 - **Política de erros**: argumento inválido → `cli_abort`; falha de rede

@@ -75,11 +75,11 @@ file_test <- tempfile(pattern = "teste_", fileext = ".txt")
 cat("Text file content", file = file_test)
 if (!inherits(test_server, "try-error"))
   webdav_upload_file(base_url = test_server$url, local_path = file_test, verbose = TRUE)
-#> ℹ Uploading file: /tmp/Rtmp7eY5Rg/teste_19f63445cfac.txt
+#> ℹ Uploading file: /tmp/RtmpcKkkez/teste_1a1b358bce33.txt
 #> ℹ Target URL:
-#>   <http://webdavserver.net/Userdb53c29/teste_19f63445cfac.txt>
+#>   <http://webdavserver.net/User59881ba/teste_1a1b358bce33.txt>
 #> ℹ Base URL:
-#>   <http://webdavserver.net/Userdb53c29/teste_19f63445cfac.txt>
+#>   <http://webdavserver.net/User59881ba/teste_1a1b358bce33.txt>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.

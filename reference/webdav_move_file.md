@@ -75,12 +75,12 @@ if (!inherits(test_server, "try-error"))
     from_path = "Notes.txt",
     to_path = "Notes-renamed.txt",
     verbose = TRUE)
-#> ℹ Base URL: <http://webdavserver.net/User20550fc>
+#> ℹ Base URL: <http://webdavserver.net/User871f21d>
 #> ℹ Moving from: Notes.txt to: Notes-renamed.txt
-#> ℹ Source Path: <http://webdavserver.net/User20550fc/Notes.txt>
+#> ℹ Source Path: <http://webdavserver.net/User871f21d/Notes.txt>
 #> ℹ Destination Path:
-#>   <http://webdavserver.net/User20550fc/Notes-renamed.txt>
-#> ℹ Base URL: <http://webdavserver.net/User20550fc/Notes.txt>
+#>   <http://webdavserver.net/User871f21d/Notes-renamed.txt>
+#> ℹ Base URL: <http://webdavserver.net/User871f21d/Notes.txt>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.

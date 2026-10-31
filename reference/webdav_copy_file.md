@@ -74,12 +74,12 @@ if (!inherits(test_server, "try-error"))
     from_path = "Project.pdf",
     to_path = "Project-copy.pdf",
     verbose = TRUE)
-#> ℹ Base URL: <http://webdavserver.net/User2907e7b>
+#> ℹ Base URL: <http://webdavserver.net/Userc297020>
 #> ℹ Copying from: Project.pdf to: Project-copy.pdf
-#> ℹ Source Path: <http://webdavserver.net/User2907e7b/Project.pdf>
+#> ℹ Source Path: <http://webdavserver.net/Userc297020/Project.pdf>
 #> ℹ Destination Path:
-#>   <http://webdavserver.net/User2907e7b/Project-copy.pdf>
-#> ℹ Base URL: <http://webdavserver.net/User2907e7b/Project.pdf>
+#>   <http://webdavserver.net/Userc297020/Project-copy.pdf>
+#> ℹ Base URL: <http://webdavserver.net/Userc297020/Project.pdf>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.

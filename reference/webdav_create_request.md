@@ -57,7 +57,7 @@ test_server <- "http://webdavserver.net/" |>
 # Create a request
 if (!inherits(test_server, "try-error"))
   req <- webdav_create_request(base_url = test_server$url, verbose = TRUE)
-#> ℹ Base URL: <http://webdavserver.net/Userb0b9238>
+#> ℹ Base URL: <http://webdavserver.net/User9ccbe5b>
 #> ℹ Username: "Not provided"
 #> ✔ Request object created successfully.
 #> ! No authentication added.

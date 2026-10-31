@@ -45,7 +45,16 @@
 <strong>v0.3.0 aceita pelo CRAN em 2026-10-31</strong> (auto-check OK em r-devel-linux-x86_64-debian-gcc e r-devel-windows-x86_64; e-mail “on its way to CRAN”). Deve aparecer em cran.r-project.org/package=webdav em 1–2 dias.</li>
 <li>Todo o trabalho da 0.3.0 está commitado em <code>main</code> (código+testes · documentação · site <code>docs/</code> · metadados de release), com tag <code>v0.3.0</code> e GitHub release publicados. <code>CRAN-SUBMISSION</code> aponta para <code>67a57d3</code>, o commit que contém o código submetido.</li>
 <li>Autores: lista idêntica à do <code>../alepe</code> (6 pessoas, mesmos papéis e ORCIDs) — conferido em 2026-10-30.</li>
+</ul><div class="section level3">
+<h3 id="pendências-ao-retomar">Pendências ao retomar<a class="anchor" aria-label="anchor" href="#pend%C3%AAncias-ao-retomar"></a></h3>
+<ul><li>Confirmar que a 0.3.0 apareceu no CRAN (página do pacote ou <code><a href="https://rdrr.io/r/utils/available.packages.html" class="external-link">available.packages()</a></code>) e tratar qualquer e-mail de follow-up do CRAN.</li>
+<li>
+<code>.DS_Store</code> está versionado mas no <code>.gitignore</code>: tirar do índice com <code>git rm --cached .DS_Store</code> quando conveniente (ficou fora dos commits da 0.3.0).</li>
+<li>
+<code>webdav_0.3.0.tar.gz</code> e <code>webdav.Rcheck/</code> sobraram na raiz (ignorados pelo git); podem ser apagados.</li>
+<li>Próxima versão: bumpar <code>DESCRIPTION</code> para <code>0.3.0.9000</code> e abrir a seção <code># webdav (development version)</code> no NEWS.md.</li>
 </ul></div>
+</div>
 <div class="section level2">
 <h2 id="convenções-do-pacote-adotadas-na-030">Convenções do pacote (adotadas na 0.3.0)<a class="anchor" aria-label="anchor" href="#conven%C3%A7%C3%B5es-do-pacote-adotadas-na-030"></a></h2>
 <ul><li>
